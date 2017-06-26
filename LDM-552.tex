@@ -1,51 +1,128 @@
-\documentclass[DM,lsstdraft,toc]{lsstdoc}
-
-% lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
-
-% Package imports go here.
-
-% Local commands go here.
-
-% To add a short-form title:
-% \title[Short title]{Title}
-\title{Qserv Software Test Specification}
-
-% Optional subtitle
-% \setDocSubtitle{A subtitle}
-
-\author{%
-Fritz Mueller
-}
-
-\setDocRef{LDM-552}
-
-\date{\today}
-
-% Optional: name of the document's curator
-% \setDocCurator{The Curator of this Document}
-
-\setDocAbstract{%
-Abstract text.
-}
-
-% Change history defined here.
-% Order: oldest first.
-% Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
-% See LPM-51 for version number policy.
-\setDocChangeRecord{%
-  \addtohist{1}{YYY-MM-DD}{Unreleased.}{Fritz Mueller}
-}
+\documentclass[DM,lsstdraft,STS,toc]{lsstdoc}
+\usepackage{enumitem}
+\input meta.tex
 
 \begin{document}
 
-% Create the title page.
-% Table of contents is added automatically with the "toc" class option.
+\def\product{Qserv}
+
+\setDocCompact{true}
+
+\title[STS for \product]{\product~Software Test Specification}
+
+\author{Fritz Mueller}
+\setDocRef{\lsstDocType-\lsstDocNum}
+\date{\vcsdate}
+
+\setDocAbstract{
+This document describes the detailed test specification for the \product.
+}
+
 \maketitle
 
-% ADD CONTENT HERE
+% oldest first
+\setDocChangeRecord{%
+    \addtohist{1}{\vcsdate}{Initial release.}{FM}
+}
 
-% Include all the relevant bib files.
-% https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
-\bibliography{lsst,lsst-dm,refs_ads,refs,books}
+\section{Introduction}
+\label{sec:intro}
+
+This document specifies the test procedure for the \product.
+
+\subsection{Objectives}
+\label{sec:objectives}
+
+This document builds on the description of LSST Data Management's approach to
+testing as described in \citeds{LDM-503} to describe the detailed tests that
+will be performed on the \product as part of the verification of the DM system.
+
+It identifies test designs, test cases and procedures for the tests, and the
+pass/fail criteria for each test.
+
+\subsection{Scope}
+\label{sec:scope}
+
+This document describes the test procedures for the following components of
+the LSST system (as described in \citeds{LDM-148}):
+
+\subsection{Applicable Documents}
+\label{sec:docs}
+
+\addtocounter{table}{-1}
+
+\begin{tabular}[htb]{l l}
+\citeds{LDM-294} & LSST DM Organization \& Management \\
+\citeds{LDM-502} & The Measurement and Verification of DM Key Performance Metrics \\
+\citeds{LDM-503} & LSST DM Test Plan \\
+\citeds{LSE-61}  & LSST DM Subsystem Requirements \\
+\citeds{LSE-163} & LSST Data Products Definition Document \\
+\end{tabular}
+
+\subsection{References\label{sect:references}}
+\renewcommand{\refname}{}
+\bibliography{lsst,refs,books,refs_ads}
+
+\section{Approach}
+\label{sec:approach}
+
+Describe the approach to be utilized for the software testing specification. It should identify the major activities, methods and tools that are to be used to test the designated group of features.
+
+\subsection{Tasks and criteria}
+\label{sec:tasks}
+
+Describe which are the items under tests, as well as criteria to be utilized. Activities should be described in sufficient detail to allow identification of the major testing tasks and estimation of the resources and time needed for the tests.
+
+\subsection{Features to be tested}
+\label{sec:feat2test}
+
+Describe the GENERAL features to be tested.
+
+\subsection{Features not to be tested}
+\label{sec:featnot2test}
+
+Describe all the features and significant combinations not to be tested and explain why. If it is not possible to test some features at their most appropriate level of testing but which will be tested at a later level, this information should be included here.
+
+\subsection{Pass/fail criteria}
+\label{sec:passfail}
+
+GENERAL criteria to be used to determine whether or not tests are passed. If we agree its always what is in LDM-503 then this is not needed.
+
+\subsection{Suspension criteria and resumption requirements}
+\label{suspension}
+
+Describe the criteria used to suspend all, or a part of, the testing activities on the test items associated withthe plan, as well as the activities to be repeated when testing is resumed.
+
+\subsection{Naming convention}
+
+All tests are named according to the pattern \textsc{prod-scope-xx-yy} where:
+
+\begin{description}[font=\normalfont\scshape]
+
+  \item[prod]{The product code, per \citeds{LDM-294}. Relevant entries for this document are:
+    \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
+      \item[qserv]{Qserv distributed database system}
+    \end{description}
+  }
+  \item[scope]{The type of test being described:
+    \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
+      \item[fun]{concerning functional testing}
+      \item[prf]{concerning performance testing}
+      \item[int]{concerning integration testing}
+      \item[mnt]{concerning maintenance testing}
+      \item[acp]{concerning acceptance testing}
+      \item[reg]{concerning regression testing}
+      \item[ins]{concerning installation testing}
+      \item[bck]{concerning backup and restore testing}
+      \item[itf]{concerning interface testing}
+    \end{description}
+  }
+  \item[xx]{Test design number (in increments of 10)}
+  \item[yy]{Test case number (in increments of 5)}
+
+\end{description}
+
+\input{specs/specs.tex}
+\input{cases/cases.tex}
 
 \end{document}
