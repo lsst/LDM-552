@@ -1,13 +1,42 @@
-\subsection{\textsc{qserv-ver-00}: Qserv Verification}
+\subsection{\textsc{QSERV-VER-00}: Qserv Verification}
 \label{qserv-ver-00}
 
 \subsubsection{Objective}
 
+This test verifies that \product{} as designed and built meets the overall requirements of the DM system.
+Specifically, we verify that:
+
+\begin{itemize}
+
+  \item{Relevant requirements expressed in \citeds{LDM-555} are met by the design;}
+
+  \item{The code as delivered is accompanied by a suite of unit tests;}
+
+  \item{The code as delivered is accompanied by appropriate documentation;}
+
+  \item{The code complies with all relevant DM coding standards\footnote{\url{https://developer.lsst.io/coding/intro.html}};}
+
+  \item{The code makes use of standard DM interfaces to e.g. logging and configuration systems;}
+
+  \item{The code is built and tested by the DM continuous integration system.}
+
+\end{itemize}
+
 \subsubsection{Approach refinements}
+
+The general approach defined in \citeds{LDM-503} is used. Methods include:
+
+\begin{itemize}
+  \item{Document inspection;}
+  \item{Code inspection;}
+  \item{Review of CI system logs.}
+\end{itemize}
 
 \subsubsection{Test case identification}
 
 \begin{longtable} {|p{0.4\textwidth}|p{0.6\textwidth}|}\hline
 \textbf{Test Case}  & \textbf{Description} \\\hline
-\hyperref[qserv-ver-00-00]{\textsc{qserv-ver-00-00}} & Qserv design inspection \\\hline
+\hyperref[qserv-ver-00-00]{\textsc{QSERV-VER-00-00}} & Qserv design inspection \\\hline
+\hyperref[qserv-ver-00-05]{\textsc{QSERV-VER-00-05}} & Qserv code inspection \\\hline
+\hyperref[qserv-ver-00-10]{\textsc{QSERV-VER-00-10}} & Qserv test inspection \\\hline
 \end{longtable}

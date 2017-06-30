@@ -1,0 +1,29 @@
+\subsection{QSERV-PRF-SCAN-SCALE-TEST}
+\label{qserv-prf-scan-scale-test}
+
+The objective of this procedure is to establish the growth trend for average query execution time of
+full-table-scan queries in the pool of interest, as a function of query concurrency.  The test shall
+be considered passed if the growth rate is sub-linear (ideally, nearly flat) within the limits of
+machine resource exhaustion.  The test procedure is as follows:
+
+\begin{enumerate}
+
+  \item{Ensure that Qserv instance under test is up to date and that there is no other concurrent
+  user activity.}
+
+  \item{Inspect and modify the \texttt{CONCURRENCY} and \texttt{TARGET\_RATES} dictionaries in the 
+  run-Queries.py script. Set \texttt{CONCURRENCY} initially to 1 for the query pool of interest, and to 0
+  for all other query pools.  Set \texttt{TARGET\_RATES} for the query pool of interest to the yearly value
+  per table in \hyperref[qserv-prf-10-00]{\textsc{QSERV-PRF-10-00}}}.
+
+  \item{\label{execstep}Execute the runQueries.py script and let it run for at least one, but preferably
+  several, query cycles.}
+
+  \item{Examine log file output and compile performance statistics to obtain a growth curve point
+  for the pool of interest for the test report.}
+
+  \item{Adjust the \texttt{CONCURRENCY} value for the pool of interest and repeat from step \ref{execstep}
+  to establish the growth trend and machine resource exhaustion cutoff for the query pool of interest to an 
+  acceptable degree of accuracy.} 
+
+\end{enumerate}

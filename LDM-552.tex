@@ -8,34 +8,34 @@
 
 \setDocCompact{true}
 
-\title[STS for \product]{\product~Software Test Specification}
+\title[STS for \product]{\product{} Software Test Specification}
 
 \author{Fritz Mueller}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \date{\vcsdate}
 
 \setDocAbstract{
-This document describes the detailed test specification for the \product.
+This document describes the detailed test specification for the \product{}.
 }
 
-\maketitle
-
-% oldest first
 \setDocChangeRecord{%
     \addtohist{1}{\vcsdate}{Initial release.}{FM}
 }
 
+\maketitle
+
 \section{Introduction}
 \label{sec:intro}
 
-This document specifies the test procedure for the \product.
+This document specifies the test procedure for \product{}. \product{} is a distributed
+shared-nothing RDBMS which will host LSST catalogs. 
 
 \subsection{Objectives}
 \label{sec:objectives}
 
 This document builds on the description of LSST Data Management's approach to
 testing as described in \citeds{LDM-503} to describe the detailed tests that
-will be performed on the \product as part of the verification of the DM system.
+will be performed on the \product{} as part of the verification of the DM system.
 
 It identifies test designs, test cases and procedures for the tests, and the
 pass/fail criteria for each test.
@@ -46,52 +46,119 @@ pass/fail criteria for each test.
 This document describes the test procedures for the following components of
 the LSST system (as described in \citeds{LDM-148}):
 
+\begin{itemize}
+  \item{Parallel Distributed Database (Qserv)}
+\end{itemize}
+
 \subsection{Applicable Documents}
 \label{sec:docs}
 
 \addtocounter{table}{-1}
 
 \begin{tabular}[htb]{l l}
-\citeds{LDM-294} & LSST DM Organization \& Management \\
-\citeds{LDM-502} & The Measurement and Verification of DM Key Performance Metrics \\
-\citeds{LDM-503} & LSST DM Test Plan \\
-\citeds{LSE-61}  & LSST DM Subsystem Requirements \\
-\citeds{LSE-163} & LSST Data Products Definition Document \\
+  \citeds{LDM-135} & LSST Qserv Database Design \\
+  \citeds{LDM-294} & LSST DM Organization \& Management \\
+  \citeds{LDM-502} & The Measurement and Verification of DM Key Performance Metrics \\
+  \citeds{LDM-503} & LSST DM Test Plan \\
+  \citeds{LDM-555} & LSST DM Database Requirements \\
 \end{tabular}
 
-\subsection{References\label{sect:references}}
+\subsection{References}
+\label{sec:references
+}
 \renewcommand{\refname}{}
 \bibliography{lsst,refs,books,refs_ads}
 
+\newpage
 \section{Approach}
 \label{sec:approach}
 
-Describe the approach to be utilized for the software testing specification. It should identify the major activities, methods and tools that are to be used to test the designated group of features.
+The approaches taken for the tests described here are:
+
+\begin{itemize}
+
+  \item{Ongoing inspection of design documents, code, and CI system logs to verify that \product{} design 
+  and implementation meet DM software quality standards in general, and requirements as expressed in 
+  \citeds{LDM-555} in particular;}
+
+  \item{Ongoing deployment and continuous operation of \product{} in a Prototype Data Access Center
+  (PDAC) in order to assess basic reliability, fitness for purpose, and integration with adjacent 
+  subsystems;}
+
+  \item{Annual deployment of \product{} to test clusters, followed by synthesis and ingestion
+  of test datasets and scripted performance/load/stress testing. The cluster size/capabilities and the
+  scale of the synthetic test dataset are both evolved along a path toward anticipated LSST operational
+  scale.}
+
+\end{itemize} 
 
 \subsection{Tasks and criteria}
 \label{sec:tasks}
 
-Describe which are the items under tests, as well as criteria to be utilized. Activities should be described in sufficient detail to allow identification of the major testing tasks and estimation of the resources and time needed for the tests.
+\product{} is a containerized, distributed, Linux application, which is deployed on machine clusters.
+At the scales to be tested, these clusters are comprised of one to several head ("czar") nodes and
+additionally on the order of tens to hundreds of shard ("worker") nodes, interconnected locally via a
+high-performance network. Head and shard nodes are provisioned each with on the order of 10s of gigabytes of
+RAM, and each with on the order of 10s of terabytes of locally attached storage.
+
+Ongoing deployment, continuous operation, and integration tests are carried out on machines within the
+Prototype Data Access Center (PDAC), a dedicated machine cluster physically located at NCSA's National 
+Peta-scale Compute Facility, maintained by NCSA staff. Catalog datasets which are maintained within
+the PDAC Qserv instance and which are used for this testing include, simultaneously:
+
+\begin{itemize}
+  \item{An LSST stack reprocessed version of the SDSS Stripe 82 catalog ({\textasciitilde{}}10 TB);}
+  \item{IRSA AllWISE and NEOWISE catalogs ({\textasciitilde{}}50 TB);}
+  \item{An LSST stack reprocessed version of the HSC catalog (scheduled; {\textasciitilde{}}50 TB).}
+\end{itemize}
+
+Tasks required for these tests include periodic update of the software deployed on the PDAC,
+periodic ingest of additional test datasets, and inter-operation with adjacent subsystems.  Uptime
+is monitored cumulatively throughout these activities to gain quantitative insight into system
+stability and reliability.
+
+Scaling, load, and stress testing are carried out on an additional machine cluster located
+CC-IN2P3 in Lyon, maintained by CC-IN2P3 staff. Scaling tests are run annually, by issuing
+a representative mix of concurrent queries against a synthetic catalog while monitoring
+average query execution times per query type.  The scaling test dataset size and query 
+concurrency level are increased each year on a glide path toward the full scale of Data Release 1.
+
+Tasks required for these tests include generation and ingest of each successive test dataset, and
+execution of scripts which issue and monitor the suites of representative test queries.
 
 \subsection{Features to be tested}
 \label{sec:feat2test}
 
-Describe the GENERAL features to be tested.
+This version of the \product{} test specification addresses only basic product verification, basic
+reliability, and performance/scale testing -- a bare minimum required to conduct ongoing development 
+and verify that \product{} remains on a realistic path towards meeting its most technically challenging
+requirements: those related to successful operability at the scale that will be required by LSST.
 
 \subsection{Features not to be tested}
 \label{sec:featnot2test}
 
-Describe all the features and significant combinations not to be tested and explain why. If it is not possible to test some features at their most appropriate level of testing but which will be tested at a later level, this information should be included here.
+Testing of the following are NOT YET COVERED in this specification:
+
+\begin{itemize}
+  \item{Fault-tolerance and disaster recovery;}
+  \item{Schema evolution;}
+  \item{Data ingest performance;}
+  \item{Query reproducibility;}
+  \item{Cross-match with external datasets.}
+\end{itemize}
+
+It is anticipated that test specifications and cases for all of the above will be developed
+and added to future revisions of this document. 
 
 \subsection{Pass/fail criteria}
 \label{sec:passfail}
 
-GENERAL criteria to be used to determine whether or not tests are passed. If we agree its always what is in LDM-503 then this is not needed.
+The results of all tests will be assessed using the criteria described in \citeds{LDM-503} \S4.
 
 \subsection{Suspension criteria and resumption requirements}
 \label{suspension}
 
-Describe the criteria used to suspend all, or a part of, the testing activities on the test items associated withthe plan, as well as the activities to be repeated when testing is resumed.
+Refer to individual test cases where applicable.
 
 \subsection{Naming convention}
 
@@ -104,19 +171,22 @@ All tests are named according to the pattern \textsc{prod-scope-xx-yy} where:
       \item[qserv]{Qserv distributed database system}
     \end{description}
   }
+
   \item[scope]{The type of test being described:
     \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
-      \item[fun]{concerning functional testing}
-      \item[prf]{concerning performance testing}
-      \item[int]{concerning integration testing}
-      \item[mnt]{concerning maintenance testing}
       \item[acp]{concerning acceptance testing}
-      \item[reg]{concerning regression testing}
-      \item[ins]{concerning installation testing}
       \item[bck]{concerning backup and restore testing}
+      \item[fun]{concerning functional testing}
+      \item[ins]{concerning installation testing}
+      \item[int]{concerning integration testing}
       \item[itf]{concerning interface testing}
+      \item[mnt]{concerning maintenance testing}
+      \item[prf]{concerning performance testing}
+      \item[reg]{concerning regression testing}
+      \item[ver]{concerning verification testing}
     \end{description}
   }
+
   \item[xx]{Test design number (in increments of 10)}
   \item[yy]{Test case number (in increments of 5)}
 
@@ -124,5 +194,6 @@ All tests are named according to the pattern \textsc{prod-scope-xx-yy} where:
 
 \input{specs/specs.tex}
 \input{cases/cases.tex}
+\input{procedures/procedures.tex}
 
 \end{document}
