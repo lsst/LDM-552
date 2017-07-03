@@ -1,0 +1,32 @@
+\subsection{\textsc{QSERV-VER-00-10}: Qserv test inspection}
+\label{qserv-ver-00-10}
+
+\subsubsection{Requirements}
+
+\subsubsection{Test items}
+
+This test will check:
+
+\begin{itemize}
+  \item{That all automated test suites associated with the product pass;}
+  \item{That there are no unexpected errors or warnings from the build, test or installation process.}
+\end{itemize}
+
+\subsubsection{Intercase dependencies}
+
+\hyperref[qserv-ver-00-05]{QSERV-VER-00-05}.
+
+\subsubsection{Procedure}
+
+Check the logs from the LSST CI system which was used to build and package the software under
+test to ensure:
+
+\begin{itemize}
+
+  \item{Successful execution of the test suite, with no failures and no tests being skipped without
+  explanatory documentation.}
+
+  \item{That there were no compiler, test, linter or other warnings associated with the software
+  build processing.}
+
+\end{itemize}

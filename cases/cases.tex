@@ -1,8 +1,35 @@
+\newpage
 \section{Test Case Specification}
 
 \subsection{Preparation}
+\label{sec:prep}
 
-Before running any test case, Qserv must be correctly
-installed. Follow the procedure described in...
+Before running any of the performance test cases, Qserv must be installed on an appropriate test cluster (e.g. 
+the test machine cluster at CC-IN2P3).  To upgrade Qserv software on the cluster in preparation for testing,
+follow directions at \url{http://www.slac.stanford.edu/exp/lsst/qserv/2015_10/HOW-TO/cluster-deployment.html}.
 
+The performance tests will also require an appropriately sized test dataset to be synthesized and ingested,
+per the yearly dataset sizing schedule described in \hyperref[qserv-prf-10]{\textsc{QSERV-PRF-10}}.  Tools
+for synthesis of ingest of test datasets may be found in the LSST github repot at \url{https://github.com/lsst-dm/db_tests_kpm20}.  Detailed use and context information for the tools is described in \url{https://jira.lsstcorp.org/browse/DM-8405}.
+
+It has also been found that the Qserv shard servers must have engine-independent statistics
+loaded for the larger tables in the test dataset, and be properly
+configured so that the MariaDB query planner can make use of those statistics.  More information on this
+issue is avilable at \url{https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786}.
+
+\newpage
 \input{cases/qserv-ver-00-00.tex}
+\newpage
+\input{cases/qserv-ver-00-05.tex}
+\newpage
+\input{cases/qserv-ver-00-10.tex}
+\newpage
+\input{cases/qserv-prf-10-00.tex}
+\newpage
+\input{cases/qserv-prf-20-00.tex}
+\newpage
+\input{cases/qserv-prf-20-05.tex}
+\newpage
+\input{cases/qserv-prf-20-10.tex}
+\newpage
+\input{cases/qserv-prf-20-15.tex}
