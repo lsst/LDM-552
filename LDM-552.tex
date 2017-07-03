@@ -28,7 +28,7 @@ This document describes the detailed test specification for the \product{}.
 \label{sec:intro}
 
 This document specifies the test procedure for \product{}. \product{} is a distributed
-shared-nothing RDBMS which will host LSST catalogs. 
+shared-nothing RDBMS which will host LSST catalogs.
 
 \subsection{Objectives}
 \label{sec:objectives}
@@ -77,12 +77,12 @@ The approaches taken for the tests described here are:
 
 \begin{itemize}
 
-  \item{Ongoing inspection of design documents, code, and CI system logs to verify that \product{} design 
-  and implementation meet DM software quality standards in general, and requirements as expressed in 
+  \item{Ongoing inspection of design documents, code, and CI system logs to verify that \product{} design
+  and implementation meet DM software quality standards in general, and requirements as expressed in
   \citeds{LDM-555} in particular;}
 
   \item{Ongoing deployment and continuous operation of \product{} in a Prototype Data Access Center
-  (PDAC) in order to assess basic reliability, fitness for purpose, and integration with adjacent 
+  (PDAC) in order to assess basic reliability, fitness for purpose, and integration with adjacent
   subsystems;}
 
   \item{Annual deployment of \product{} to test clusters, followed by synthesis and ingestion
@@ -90,7 +90,7 @@ The approaches taken for the tests described here are:
   scale of the synthetic test dataset are both evolved along a path toward anticipated LSST operational
   scale.}
 
-\end{itemize} 
+\end{itemize}
 
 \subsection{Tasks and criteria}
 \label{sec:tasks}
@@ -102,7 +102,7 @@ high-performance network. Head and shard nodes are provisioned each with on the 
 RAM, and each with on the order of 10s of terabytes of locally attached storage.
 
 Ongoing deployment, continuous operation, and integration tests are carried out on machines within the
-Prototype Data Access Center (PDAC), a dedicated machine cluster physically located at NCSA's National 
+Prototype Data Access Center (PDAC), a dedicated machine cluster physically located at NCSA's National
 Peta-scale Compute Facility, maintained by NCSA staff. Catalog datasets which are maintained within
 the PDAC Qserv instance and which are used for this testing include, simultaneously:
 
@@ -120,7 +120,7 @@ stability and reliability.
 Scaling, load, and stress testing are carried out on an additional machine cluster located
 CC-IN2P3 in Lyon, maintained by CC-IN2P3 staff. Scaling tests are run annually, by issuing
 a representative mix of concurrent queries against a synthetic catalog while monitoring
-average query execution times per query type.  The scaling test dataset size and query 
+average query execution times per query type.  The scaling test dataset size and query
 concurrency level are increased each year on a glide path toward the full scale of Data Release 1.
 
 Tasks required for these tests include generation and ingest of each successive test dataset, and
@@ -130,7 +130,7 @@ execution of scripts which issue and monitor the suites of representative test q
 \label{sec:feat2test}
 
 This version of the \product{} test specification addresses only basic product verification, basic
-reliability, and performance/scale testing -- a bare minimum required to conduct ongoing development 
+reliability, and performance/scale testing -- a bare minimum required to conduct ongoing development
 and verify that \product{} remains on a realistic path towards meeting its most technically challenging
 requirements: those related to successful operability at the scale that will be required by LSST.
 
@@ -148,7 +148,7 @@ Testing of the following are NOT YET COVERED in this specification:
 \end{itemize}
 
 It is anticipated that test specifications and cases for all of the above will be developed
-and added to future revisions of this document. 
+and added to future revisions of this document.
 
 \subsection{Pass/fail criteria}
 \label{sec:passfail}

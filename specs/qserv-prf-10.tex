@@ -8,17 +8,17 @@ per \citeds{LSE-61} and \citeds{LDM-555}.
 
 \subsubsection{Approach refinements}
 
-Query load on Qserv is anticipated to be a combination of "low volume" queries (queries that touch a 
-small area of sky, or request a small number of objects) and "high volume" queries (queries that involve 
+Query load on Qserv is anticipated to be a combination of "low volume" queries (queries that touch a
+small area of sky, or request a small number of objects) and "high volume" queries (queries that involve
 full-sky scans and may involve more complex spatial and temporal correlations).
 
-Concurrency performance targets are expressed in terms of the allowable numbers of each of these query 
+Concurrency performance targets are expressed in terms of the allowable numbers of each of these query
 types that may be simultaneously active within the system while still meeting specified average query
-completion times per type. 
+completion times per type.
 
 The number of simultaneous low and high volume queries and the size of the dataset against which the
-queries are issued are evolved along a glide path toward the eventual operation targets, provide a 
-sequence of "data challenge" tests.  The following schedule shall be followed (FY20 LV and HV targets 
+queries are issued are evolved along a glide path toward the eventual operation targets, provide a
+sequence of "data challenge" tests.  The following schedule shall be followed (FY20 LV and HV targets
 taken from \citeds{LSE-61}):
 
 \begin{longtable}{|l|l|l|l|}\hline

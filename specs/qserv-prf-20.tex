@@ -7,16 +7,16 @@ This test design verifies that the shared-scan feature of Qserv functions per de
 allowing average completion-time of full-scan queries to grow sub-linearly with respect to the number of
 simultaneously active full-scan queries, within the limits of machine resource exhaustion.
 
-Proper behavior of Qserv in this regard is an important sub-goal of being able to feasibly meet high 
+Proper behavior of Qserv in this regard is an important sub-goal of being able to feasibly meet high
 volume concurrency requirements as specified in \citeds{LSE-61}.  The outcome of these tests will also
 help refine machine resource provisioning targets for operations.
 
 \subsubsection{Approach refinements}
 
-Full-scan queries will be simultaneously issued at increasing levels of concurrency while query 
+Full-scan queries will be simultaneously issued at increasing levels of concurrency while query
 completion times are monitored to establish the average query completion time growth trend.  The
 tests will be carried out with full-scan queries of various types and levels of complexity in order
-to verify that shared scan query classification and per-type scan scheduling function per design. 
+to verify that shared scan query classification and per-type scan scheduling function per design.
 
 \subsubsection{Test case identification}
 

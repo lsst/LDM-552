@@ -23,7 +23,7 @@ scaled test catalog.
 \begin{itemize}
 
   \item{A test catalog of appropriate size (see schedule detail in \hyperref[qserv-prf-10]{\textsc{
-  QSERV-PRF-10}}), prepared and ingested into the \product{} instance under test as detailed in 
+  QSERV-PRF-10}}), prepared and ingested into the \product{} instance under test as detailed in
   section~\secref{sec:prep}.}
 
   \item{The concurrency load execution script, runQueries.py, maintained in the LSST \product{}
@@ -42,7 +42,7 @@ scaled test catalog.
 \begin{enumerate}
 
   \item{Inspect and possibly modify the \texttt{CONCURRENCY} and \texttt{TARGET\_RATES} dictionaries in
-  the runQueries.py script to adjust the concurrency mix and target execution times per query class.  Query 
+  the runQueries.py script to adjust the concurrency mix and target execution times per query class.  Query
   mixes and target times are to be adjusted per the following schedule:
 
     \begin{tabular}{|l|c|c|c|c|c|c|c|}\hline
@@ -53,22 +53,22 @@ scaled test catalog.
         &\textbf{time (sec)}  & 10 & 10 & 10 & 10 & 10 &  10 \\\hline
       \multirow{2}{*}{\textbf{FTSObj}}
         &\textbf{\# queries}  &  3 &  4 &  8 & 12 & 16 &  20 \\%\cline{2-8}
-        &\textbf{time (hours)}& 12 &  1 &  1 &  1 &  1 &   1 \\\hline                     
+        &\textbf{time (hours)}& 12 &  1 &  1 &  1 &  1 &   1 \\\hline
       \multirow{2}{*}{\textbf{FTSSrc}}
         &\textbf{\# queries}  &  1 &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
-        &\textbf{time (hours)}& 12 & 12 & 12 & 12 & 12 &  12 \\\hline                     
+        &\textbf{time (hours)}& 12 & 12 & 12 & 12 & 12 &  12 \\\hline
       \multirow{2}{*}{\textbf{FTSFSrc}}
         &\textbf{\# queries}  &    &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
-        &\textbf{time (hours)}&    & 12 & 12 & 12 & 12 &  12 \\\hline                     
+        &\textbf{time (hours)}&    & 12 & 12 & 12 & 12 &  12 \\\hline
       \multirow{2}{*}{\textbf{joinObjSrc}}
         &\textbf{\# queries}  &  1 &  2 &  4 &  6 &  8 &  10 \\%\cline{2-8}
-        &\textbf{time (hours)}& 12 & 12 & 12 & 12 & 12 &  12 \\\hline                     
+        &\textbf{time (hours)}& 12 & 12 & 12 & 12 & 12 &  12 \\\hline
       \multirow{2}{*}{\textbf{joinObjFSrc}}
         &\textbf{\# queries}  &    &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
-        &\textbf{time (hours)}&    & 12 & 12 & 12 & 12 &  12 \\\hline                     
+        &\textbf{time (hours)}&    & 12 & 12 & 12 & 12 &  12 \\\hline
       \multirow{2}{*}{\textbf{nearN}}
         &\textbf{\# queries}  &    &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
-        &\textbf{time (hours)}&    &  1 &  1 &  1 &  1 &   1 \\\hline                     
+        &\textbf{time (hours)}&    &  1 &  1 &  1 &  1 &   1 \\\hline
     \end{tabular}
 
   }
@@ -81,4 +81,3 @@ scaled test catalog.
   \item{Examine log file output and compile performance statistics for the test report.}
 
 \end{enumerate}
-
