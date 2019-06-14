@@ -1,10 +1,12 @@
 \documentclass[DM,lsstdraft,STS,toc]{lsstdoc}
 \usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{arydshln}
+
 \input meta.tex
 
-\begin{document}
 
-\def\product{Qserv}
+\def\product{Distributed Database}
 
 \setDocCompact{true}
 
@@ -15,13 +17,22 @@
 \date{\vcsdate}
 \setDocUpstreamLocation{\url{https://github.com/lsst/LDM-552}}
 
+\makeglossaries
+\input{aglossary.tex}
+
 \setDocAbstract{
 This document describes the detailed test specification for the \product{}.
 }
 
 \setDocChangeRecord{%
+    \addtohist{}{2019-06-14}{Autogenerate from Jira.}{G.~Comoretto}
     \addtohist{}{2017-07-02}{Initial draft.}{F.~Mueller}
 }
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
 
 \maketitle
 
@@ -29,14 +40,14 @@ This document describes the detailed test specification for the \product{}.
 \label{sec:intro}
 
 This document specifies the test procedure for \product{}. \product{} is a distributed
-shared-nothing RDBMS which will host LSST catalogs.
+shared-nothing RDBMS which will host \gls{LSST} catalogs.
 
 \subsection{Objectives}
 \label{sec:objectives}
 
-This document builds on the description of LSST Data Management's approach to
+This document builds on the description of \gls{LSST} \gls{Data Management}'s approach to
 testing as described in \citeds{LDM-503} to describe the detailed tests that
-will be performed on the \product{} as part of the verification of the DM system.
+will be performed on the \product{} as part of the verification of the \gls{DM} system.
 
 It identifies test designs, test cases and procedures for the tests, and the
 pass/fail criteria for each test.
@@ -45,10 +56,10 @@ pass/fail criteria for each test.
 \label{sec:scope}
 
 This document describes the test procedures for the following components of
-the LSST system (as described in \citeds{LDM-148}):
+the \gls{LSST} system (as described in \citeds{LDM-148}):
 
 \begin{itemize}
-  \item{Parallel Distributed Database (Qserv)}
+  \item{Parallel Distributed Database (\gls{Qserv})}
 \end{itemize}
 
 \subsection{Applicable Documents}
@@ -57,11 +68,11 @@ the LSST system (as described in \citeds{LDM-148}):
 \addtocounter{table}{-1}
 
 \begin{tabular}[htb]{l l}
-  \citeds{LDM-135} & LSST Qserv Database Design \\
-  \citeds{LDM-294} & LSST DM Organization \& Management \\
-  \citeds{LDM-502} & The Measurement and Verification of DM Key Performance Metrics \\
-  \citeds{LDM-503} & LSST DM Test Plan \\
-  \citeds{LDM-555} & LSST DM Database Requirements \\
+  \citeds{LDM-135} & \gls{LSST} \gls{Qserv} Database Design \\
+  \citeds{LDM-294} & \gls{LSST} \gls{DM} Organization \& Management \\
+  \citeds{LDM-502} & The Measurement and \gls{Verification} of \gls{DM} Key Performance Metrics \\
+  \citeds{LDM-503} & \gls{LSST} \gls{DM} Test Plan \\
+  \citeds{LDM-555} & \gls{LSST} \gls{DM} Database Requirements \\
 \end{tabular}
 
 \subsection{References}
@@ -78,17 +89,17 @@ The approaches taken for the tests described here are:
 
 \begin{itemize}
 
-  \item{Ongoing inspection of design documents, code, and CI system logs to verify that \product{} design
-  and implementation meet DM software quality standards in general, and requirements as expressed in
+  \item{Ongoing inspection of design documents, code, and \gls{CI} system logs to verify that \product{} design
+  and implementation meet \gls{DM} software quality standards in general, and requirements as expressed in
   \citeds{LDM-555} in particular;}
 
-  \item{Ongoing deployment and continuous operation of \product{} in a Prototype Data Access Center
-  (PDAC) in order to assess basic reliability, fitness for purpose, and integration with adjacent
+  \item{Ongoing deployment and continuous operation of \product{} in a Prototype \gls{Data Access Center}
+  (\gls{PDAC}) in order to assess basic reliability, fitness for purpose, and integration with adjacent
   subsystems;}
 
   \item{Annual deployment of \product{} to test clusters, followed by synthesis and ingestion
   of test datasets and scripted performance/load/stress testing. The cluster size/capabilities and the
-  scale of the synthetic test dataset are both evolved along a path toward anticipated LSST operational
+  scale of the synthetic test dataset are both evolved along a path toward anticipated \gls{LSST} operational
   scale.}
 
 \end{itemize}
@@ -103,17 +114,17 @@ high-performance network. Head and shard nodes are provisioned each with on the 
 RAM, and each with on the order of 10s of terabytes of locally attached storage.
 
 Ongoing deployment, continuous operation, and integration tests are carried out on machines within the
-Prototype Data Access Center (PDAC), a dedicated machine cluster physically located at NCSA's National
-Peta-scale Compute Facility, maintained by NCSA staff. Catalog datasets which are maintained within
-the PDAC Qserv instance and which are used for this testing include, simultaneously:
+Prototype \gls{Data Access Center} (\gls{PDAC}), a dedicated machine cluster physically located at \gls{NCSA}'s National
+Peta-scale Compute Facility, maintained by \gls{NCSA} staff. Catalog datasets which are maintained within
+the \gls{PDAC} \gls{Qserv} instance and which are used for this testing include, simultaneously:
 
 \begin{itemize}
-  \item{An LSST stack reprocessed version of the SDSS Stripe 82 catalog (currently from Summer 2013 \citedsp{Document-15097}) ({\textasciitilde{}}10 TB);}
-  \item{IRSA AllWISE and NEOWISE catalogs ({\textasciitilde{}}50 TB);}
-  \item{An LSST stack reprocessed version of the HSC catalog (scheduled; {\textasciitilde{}}50 TB).}
+  \item{An \gls{LSST} \gls{stack} reprocessed version of the \gls{SDSS} \gls{Stripe 82} catalog (currently from Summer 2013 \citedsp{Document-15097}) ({\textasciitilde{}}10 \gls{TB});}
+  \item{IRSA AllWISE and NEOWISE catalogs ({\textasciitilde{}}50 \gls{TB});}
+  \item{An \gls{LSST} \gls{stack} reprocessed version of the \gls{HSC} catalog (scheduled; {\textasciitilde{}}50 \gls{TB}).}
 \end{itemize}
 
-Tasks required for these tests include periodic update of the software deployed on the PDAC,
+Tasks required for these tests include periodic update of the software deployed on the \gls{PDAC},
 periodic ingest of additional test datasets, and inter-operation with adjacent subsystems.  Uptime
 is monitored cumulatively throughout these activities to gain quantitative insight into system
 stability and reliability.
@@ -122,7 +133,7 @@ Scaling, load, and stress testing are carried out on an additional machine clust
 CC-IN2P3 in Lyon, maintained by CC-IN2P3 staff. Scaling tests are run annually, by issuing
 a representative mix of concurrent queries against a synthetic catalog while monitoring
 average query execution times per query type.  The scaling test dataset size and query
-concurrency level are increased each year on a glide path toward the full scale of Data Release 1.
+concurrency level are increased each year on a glide path toward the full scale of \gls{Data Release} 1.
 
 Tasks required for these tests include generation and ingest of each successive test dataset, and
 execution of scripts which issue and monitor the suites of representative test queries.
@@ -133,7 +144,7 @@ execution of scripts which issue and monitor the suites of representative test q
 This version of the \product{} test specification addresses only basic product verification, basic
 reliability, and performance/scale testing -- a bare minimum required to conduct ongoing development
 and verify that \product{} remains on a realistic path towards meeting its most technically challenging
-requirements: those related to successful operability at the scale that will be required by LSST.
+requirements: those related to successful operability at the scale that will be required by \gls{LSST}.
 
 \subsection{Features not to be tested}
 \label{sec:featnot2test}
@@ -163,7 +174,15 @@ Refer to individual test cases where applicable.
 
 \subsection{Naming convention}
 
-All tests are named according to the pattern \textsc{prod-scope-xx-yy} where:
+With the introduction of the Jira Test Management, the following definitions have to be considered:
+
+\begin{description}
+  \item[LVV]{: Is the label for the ``LSST \gls{Verification} and \gls{Validation}'' project in Jira where all information regarding tests are managed.}
+  \item[LVV-XXX]{: Are \gls{Verification} Elements, where XXX is the \gls{Verification} Element identifier.  Each \gls{Verification} Element is derived from a requirement and has at least one Test Case associated. There can be multiple \gls{Verification} Elements associated with a requirement.}
+  \item[LVV-TYYY]{: Are Test Cases. Each Test Case is associated with a \gls{Verification} Element, where YYY is the Test Case identifier. There can be multiple test cases associated with a \gls{Verification} Element.}
+\end{description}
+
+All tests cases defined before the introduction of the Jira Test Management approach, are named according to the pattern \textsc{prod-scope-xx-yy} where:
 
 \begin{description}[font=\normalfont\scshape]
 
@@ -193,8 +212,12 @@ All tests are named according to the pattern \textsc{prod-scope-xx-yy} where:
 
 \end{description}
 
-\input{specs/specs.tex}
-\input{cases/cases.tex}
-\input{procedures/procedures.tex}
+\input{jira_docugen.tex}
+
+\newpage
+\appendix
+\input{jira_docugen.appendix.tex}
+
+\printglossaries
 
 \end{document}
