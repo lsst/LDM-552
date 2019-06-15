@@ -12,23 +12,23 @@ Test Id & Test Name\tabularnewline
 \midrule
 \endhead
     \hyperref[lvv-t1013]{LVV-T1013} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1013}{QSERV-VER-00-00: Qserv design inspection} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1013}{QSERV-VER-00-00: \gls{Qserv} design inspection} \tabularnewline
     \hyperref[lvv-t1014]{LVV-T1014} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1014}{QSERV-VER-00-10: Qserv test inspection} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1014}{QSERV-VER-00-10: \gls{Qserv} test inspection} \tabularnewline
     \hyperref[lvv-t1015]{LVV-T1015} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1015}{QSERV-VER-00-05: Qserv code inspection} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1015}{QSERV-VER-00-05: \gls{Qserv} code inspection} \tabularnewline
     \hyperref[lvv-t1016]{LVV-T1016} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1016}{QSERV-PRF-20-00: Object Shared Scan Scaling} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1016}{QSERV-PRF-20-00: \gls{Object} Shared Scan Scaling} \tabularnewline
     \hyperref[lvv-t1017]{LVV-T1017} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{QSERV Preparation} \tabularnewline
     \hyperref[lvv-t1018]{LVV-T1018} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1018}{Procedure QSERV-PRF-SCAN-SCALE-TEST} \tabularnewline
     \hyperref[lvv-t1019]{LVV-T1019} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1019}{QSERV-PRF-20-05: Source Shared Scan Scaling} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1019}{QSERV-PRF-20-05: \gls{Source} Shared Scan Scaling} \tabularnewline
     \hyperref[lvv-t1020]{LVV-T1020} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1020}{QSERV-PRF-20-10: Object Source Join Shared Scan Scaling} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1020}{QSERV-PRF-20-10: \gls{Object} Source Join Shared Scan Scaling} \tabularnewline
     \hyperref[lvv-t1021]{LVV-T1021} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1021}{QSERV-PRF-20-15: Object ForcedSource Join Shared Scan Scaling} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1021}{QSERV-PRF-20-15: \gls{Object} ForcedSource Join Shared Scan Scaling} \tabularnewline
     \hyperref[lvv-t1022]{LVV-T1022} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1022}{QSERV-PRF-10-00: Concurrent Query Performance} \tabularnewline
 \bottomrule
@@ -39,13 +39,13 @@ Test Id & Test Name\tabularnewline
 \section{Test Cases}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1013}{LVV-T1013}
-    - QSERV-VER-00-00: Qserv design inspection}\label{lvv-t1013}
+    - QSERV-VER-00-00: \gls{Qserv} design inspection}\label{lvv-t1013}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
-1 & Approved & Normal &
+1 & Draft & Normal &
 Inspection & Fritz Mueller
 \\\bottomrule
 \end{longtable}
@@ -54,8 +54,8 @@ Inspection & Fritz Mueller
     None.
 
 \subsubsection{Test Items}
-This test will check that the design of QSERV is adequate to meet the DM
-subsystem requirements\\
+This test will check that the design of QSERV is adequate to meet the \gls{DM}
+subsystem requirements.\\
 ~\\
 
 
@@ -80,9 +80,8 @@ subsystem requirements\\
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            By reference to {LDM-135}, the Qserv design document, and LDM-555, the
-Qserv requirements document, demonstrate that elements exist in the
-design as stated to address each of individual requirements
+            Inspect that LDM-135 is up to date and that the design document is
+adequate to fulfill the requirements documented in LDM-555.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -92,18 +91,24 @@ design as stated to address each of individual requirements
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                The design document in LDM-135 is adequate to fulfill the requirements
+documented in LDM-555.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1014}{LVV-T1014}
-    - QSERV-VER-00-10: Qserv test inspection}\label{lvv-t1014}
+    - QSERV-VER-00-10: \gls{Qserv} test inspection}\label{lvv-t1014}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
-1 & Approved & Normal &
-Test & Fritz Mueller
+1 & Draft & Normal &
+Inspection & Fritz Mueller
 \\\bottomrule
 \end{longtable}
 
@@ -146,8 +151,7 @@ LVV-T1015(QSERV-VER-00-05)
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Successful execution of the test suite, with no failures and no tests
-being skipped without explanatory documentation
+            Inspect the successful execution of the test suite.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -157,12 +161,17 @@ being skipped without explanatory documentation
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Unit tests are executed successfully and explanation shall be provided
+for the skipped ones.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            That there were no compiler, test, linter or other warnings associated
-with the software build processing
+            Inspect the successful execution of the build process.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -172,15 +181,21 @@ with the software build processing
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                No compiler, test, linter or other warnings associated with the software
+build processing are found.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1015}{LVV-T1015}
-    - QSERV-VER-00-05: Qserv code inspection}\label{lvv-t1015}
+    - QSERV-VER-00-05: \gls{Qserv} code inspection}\label{lvv-t1015}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Inspection & Fritz Mueller
@@ -196,12 +211,12 @@ This test will check:
 \begin{itemize}
 \tightlist
 \item
-  That the code delivered complies with relevant DM software quality
+  That the code delivered complies with relevant \gls{DM} software quality
   standards;
 \item
   That the code is accompanied by appropriate documentation;
 \item
-  That the code makes use of appropriate DM interfaces to the rest of
+  That the code makes use of appropriate \gls{DM} interfaces to the rest of
   the system where applicable;
 \item
   That the code is appropriately tested.
@@ -240,13 +255,18 @@ codebase
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Unit tests in the code base.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Check the code to demonstrate that uses only standardized DM interfaces
-for such things as logging and configuration (i.e. it does not print
-directly to screen nor does it contain ad-hoc configuration parsers)
+            Check the code to demonstrate that uses only standardized \gls{DM} interfaces
+for such things as logging and \gls{configuration} (i.e. it does not print
+directly to screen nor does it contain ad-hoc \gls{configuration} parsers)
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -256,6 +276,11 @@ directly to screen nor does it contain ad-hoc configuration parsers)
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                \gls{DM} standards are used.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
 
             \multirow{3}{*}{ 3 } & Description &
@@ -271,15 +296,20 @@ procedures for its installation and operation
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                User manual is provided and up-to-date.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1016}{LVV-T1016}
-    - QSERV-PRF-20-00: Object Shared Scan Scaling}\label{lvv-t1016}
+    - QSERV-PRF-20-00: \gls{Object} Shared Scan Scaling}\label{lvv-t1016}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -289,13 +319,13 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
-the Object table
+the \gls{Object} table
 
 \end{itemize}
 
 \subsubsection{Test Items}
 This test will show that average completion-time of full-scan queries of
-the Object catalog table grow\\
+the \gls{Object} catalog table grow\\
 sub-linearly with respect to the number of simultaneously active
 full-scan queries, within the limits of\\
 machine resource exhaustion.
@@ -319,7 +349,7 @@ machine resource exhaustion.
   test as detailed in LVV-T1017.
 \item
   The concurrency load execution script, runQueries.py, maintained in
-  the LSST QSERV github repository here:
+  the \gls{LSST} QSERV github repository here:
   https://github.com/lsst/qserv/blob/master/admin/tools/docker/deployment/in2p3/runQueries.py
 \end{itemize}
 
@@ -340,7 +370,7 @@ Log files as generated by the runQueries.py test script
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Ensure that Qserv instance under test is up to date and that there is no
+                Ensure that \gls{Qserv} instance under test is up to date and that there is no
 other concurrent user activity
 
                 \vspace{\dp0}
@@ -437,7 +467,7 @@ acceptable degree of accuracy.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -448,9 +478,9 @@ Test & Fritz Mueller
     None.
 
 \subsubsection{Test Items}
-Before running any of the performance test cases, Qserv must be
+Before running any of the performance test cases, \gls{Qserv} must be
 installed on an appropriate test cluster (e.g.\\
-the test machine cluster at CC-IN2P3). ~To upgrade Qserv software on the
+the test machine cluster at CC-IN2P3). ~To upgrade \gls{Qserv} software on the
 cluster in preparation for testing,\\
 follow directions at
 http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html.\\
@@ -458,18 +488,18 @@ http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.h
 The performance tests will also require an appropriately sized test
 dataset to be synthesized and ingested,\\
 per the yearly dataset sizing schedule described in LVV-T1022
-(QSERV-PRF-10). ~Tools\\
-for synthesis of ingest of test datasets may be found in the LSST github
+(QSERV-PRF-10-00). ~Tools\\
+for synthesis of ingest of test datasets may be found in the \gls{LSST} github
 repot at https://github.com/lsst-dm/db\_tests\_kpm20. ~Detailed use and
 context information for the tools is described in
 https://jira.lsstcorp.org/browse/DM-8405.\\
 ~\\
-It has also been found that the Qserv shard servers must have
+It has also been found that the \gls{Qserv} shard servers must have
 engine-independent statistics\\
 loaded for the larger tables in the test dataset, and be properly\\
 configured so that the MariaDB query planner can make use of those
 statistics. ~More information on this\\
-issue is avilable at
+issue is available at
 https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
 
 
@@ -494,7 +524,9 @@ https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            
+            Follow directions at
+http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html
+
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
@@ -503,6 +535,11 @@ https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                \gls{Qserv} installed.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
     \end{longtable}
 
@@ -511,7 +548,7 @@ https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -552,7 +589,7 @@ machine resource exhaustion.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Ensure that Qserv instance under test is up to date and that there is no
+            Ensure that \gls{Qserv} instance under test is up to date and that there is no
 other concurrent user activity
 
             \vspace{\dp0}
@@ -632,11 +669,11 @@ acceptable degree of accuracy.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1019}{LVV-T1019}
-    - QSERV-PRF-20-05: Source Shared Scan Scaling}\label{lvv-t1019}
+    - QSERV-PRF-20-05: \gls{Source} Shared Scan Scaling}\label{lvv-t1019}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -646,13 +683,13 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
-the Object table
+the \gls{Object} table
 
 \end{itemize}
 
 \subsubsection{Test Items}
 This test will show that average completion-time of full-scan queries of
-the Source catalog table grow sub-linearly with respect to the number of
+the \gls{Source} catalog table grow sub-linearly with respect to the number of
 simultaneously active full-scan queries, within the limits of machine
 resource exhaustion.
 
@@ -676,7 +713,7 @@ resource exhaustion.
   LVV-T1017.
 \item
   The concurrency load execution script, runQueries.py, maintained in
-  the LSST QSERV github repository here:
+  the \gls{LSST} QSERV github repository here:
   https://github.com/lsst/qserv/blob/master/admin/tools/docker/deployment/in2p3/runQueries.py
 \end{itemize}
 
@@ -697,7 +734,7 @@ Log files as generated by the runQueries.py test script.
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Ensure that Qserv instance under test is up to date and that there is no
+                Ensure that \gls{Qserv} instance under test is up to date and that there is no
 other concurrent user activity
 
                 \vspace{\dp0}
@@ -790,11 +827,11 @@ acceptable degree of accuracy.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1020}{LVV-T1020}
-    - QSERV-PRF-20-10: Object Source Join Shared Scan Scaling}\label{lvv-t1020}
+    - QSERV-PRF-20-10: \gls{Object} Source Join Shared Scan Scaling}\label{lvv-t1020}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -804,13 +841,13 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
-the Object table
+the \gls{Object} table
 
 \end{itemize}
 
 \subsubsection{Test Items}
 This test will show that average completion-time of full-scan queries
-which join the Object and Source catalog tables grow sub-linearly with
+which join the \gls{Object} and \gls{Source} catalog tables grow sub-linearly with
 respect to the number of simultaneously active full-scan queries, within
 the limits of machine resource exhaustion.
 
@@ -834,7 +871,7 @@ the limits of machine resource exhaustion.
   LVV-T1017.
 \item
   The concurrency load execution script, runQueries.py, maintained in
-  the LSST QSERV github repository here:
+  the \gls{LSST} QSERV github repository here:
   https://github.com/lsst/qserv/blob/master/admin/tools/docker/deployment/in2p3/runQueries.py
 \end{itemize}
 
@@ -855,7 +892,7 @@ Log files as generated by the runQueries.py test script
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Ensure that Qserv instance under test is up to date and that there is no
+                Ensure that \gls{Qserv} instance under test is up to date and that there is no
 other concurrent user activity
 
                 \vspace{\dp0}
@@ -948,11 +985,11 @@ acceptable degree of accuracy.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1021}{LVV-T1021}
-    - QSERV-PRF-20-15: Object ForcedSource Join Shared Scan Scaling}\label{lvv-t1021}
+    - QSERV-PRF-20-15: \gls{Object} ForcedSource Join Shared Scan Scaling}\label{lvv-t1021}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -962,13 +999,13 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
-the Object table
+the \gls{Object} table
 
 \end{itemize}
 
 \subsubsection{Test Items}
 This test will show that average completion-time of full-scan queries
-which join the Object and ForcedSource catalog tables grow sub-linearly
+which join the \gls{Object} and \gls{ForcedSource} catalog tables grow sub-linearly
 with respect to the number of simultaneously active full-scan queries,
 within the limits of machine resource exhaustion.
 
@@ -992,7 +1029,7 @@ within the limits of machine resource exhaustion.
   LVV-T1017.
 \item
   The concurrency load execution script, runQueries.py, maintained in
-  the LSST QSERV github repository here:
+  the \gls{LSST} QSERV github repository here:
   https://github.com/lsst/qserv/blob/master/admin/tools/docker/deployment/in2p3/runQueries.py
 \end{itemize}
 
@@ -1013,7 +1050,7 @@ Log files as generated by the runQueries.py test script.
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Ensure that Qserv instance under test is up to date and that there is no
+                Ensure that \gls{Qserv} instance under test is up to date and that there is no
 other concurrent user activity
 
                 \vspace{\dp0}
@@ -1110,7 +1147,7 @@ acceptable degree of accuracy.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Owner
+Version & Status & Priority & \gls{Verification} Type & Owner
 \\\midrule
 1 & Approved & Normal &
 Test & Fritz Mueller
@@ -1120,7 +1157,7 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
-the Object table
+the \gls{Object} table
 
 \item \href{https://jira.lsstcorp.org/browse/LVV-187}{LVV-187} - DMS-REQ-0356-V-01: Radius for low-volume query
 
@@ -1155,7 +1192,7 @@ LVV-T1016, LVV-T1019, LVV-T1020, LVV-T1021
   LVV-T1017.
 \item
   The concurrency load execution script, runQueries.py, maintained in
-  the LSST QSERV github repository here:
+  the \gls{LSST} QSERV github repository here:
   https://github.com/lsst/qserv/blob/master/admin/tools/docker/deployment/in2p3/runQueries.py
 \end{itemize}
 
@@ -1178,218 +1215,64 @@ adjust the concurrency mix and target execution times per query class.
 ~Query mixes and target times are to be adjusted per the following
 schedule:\\
 ~\\
-
-Query Class
-
-2015
-
-2016
-
-2017
-
-2018
-
-2019
-
-2020
-
-LV
-
-\#queries\\
-
-50
-
-60
-
-70
-
-80
-
-90
-
-100\\
-
-time(sec)
-
-10
-
-10
-
-10
-
-10
-
-10
-
-10
-
-FTSObj
-
-\#queries
-
-3
-
-4
-
-8
-
-12
-
-16
-
-20
-
-time(hours)
-
-12
-
-1
-
-1
-
-1
-
-1
-
-1
-
-FTSSrc
-
-\#queries
-
-1
-
-1
-
-2
-
-3
-
-4
-
-5
-
-time(hours)
-
-12
-
-12
-
-12
-
-12
-
-12
-
-12
-
-FTSFSrc
-
-\#queries\\
-
-1
-
-2
-
-3
-
-4
-
-5
-
-time(hours)\\
-
-12
-
-12
-
-12
-
-12
-
-12
-
-joinObjSrc
-
-\#queries\\
-
-1
-
-2
-
-4
-
-6
-
-8
-
-10
-
-time(hours)\\
-
-12
-
-12
-
-12
-
-12
-
-12
-
-12
-
-joinObjFSrc
-
-\#queries\\
-
-1
-
-2
-
-3
-
-4
-
-5
-
-time(hours)\\
-
-12
-
-12
-
-12
-
-12
-
-12
-
-nearN
-
-\#queries\\
-
-1
-
-2
-
-3
-
-4
-
-5
-
-time(hours)\\
-
-1
-
-1
-
-1
-
-1
-
-1
+\textbf{LV Query Class~}(\#queries, \#time sec):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(50, 10) 2016(60, 10) 2017(70, 10) 2018(80, 10) 2019(90, 10)
+  2020(100, 10)
+\end{itemize}
+
+\textbf{FTSObj Query Class~}(\#queries, \#time hours):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(3, 12) 2016(4, 1) 2017(8, 1) 2018(12, 1) 2019(16, 1) 2020(20, 1)
+\end{itemize}
+
+\textbf{FTSSrc Query Class~}(\#queries, \#time hours):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(1, 12) 2016(1, 12) 2017(2, 12) 2018(3, 12) 2019(4, 12) 2020(5,
+  12)
+\end{itemize}
+
+\textbf{FTSFSrc Query Class~}(\#queries, \#time hours):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(0, 0) 2016(1, 12) 2017(2, 12) 2018(3, 12) 2019(4, 12) 2020(5, 12)
+\end{itemize}
+
+\textbf{joinObjSrc Query Class~}(\#queries, \#time hours):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(1, 12) 2016(2, 12) 2017(4, 12) 2018(6, 12) 2019(8, 12) 2020(10,
+  12)
+\end{itemize}
+
+\textbf{joinObjFSrc Query Class~}(\#queries, \#time hours):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(0, 0) 2016(1, 12) 2017(2, 12) 2018(3, 12) 2019(4, 12) 2020(5, 12)
+\end{itemize}
+
+\textbf{nearN Query Class~}(\#queries, \#time hours):~
+
+\begin{itemize}
+\tightlist
+\item
+  2015(0, 0) 2016(1, 1) 2017(2, 1) 2018(3, 1) 2019(4, 1) 2020(5, 1)
+\end{itemize}
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
