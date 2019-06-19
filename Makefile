@@ -19,21 +19,13 @@ OBJ=$(SRC:.tex=.pdf)
 #Default when you type make
 all: $(OBJ)
 
-$(OBJ): $(tex) meta.tex aglossary.tex
-	xelatex $(DOC)
-	makeglossaries $(DOC)
-	bibtex $(DOC)
-	xelatex $(DOC)
-	makeglossaries $(DOC)
-	bibtex $(DOC)
-	xelatex $(DOC)
-	xelatex $(DOC)
+$(OBJ): $(tex) meta.tex acronyms.tex
+	latexmk -bibtex -xelatex -f $(DOC).tex
 
 .FORCE:
 
-aglossary.tex :$(tex) myacronyms.txt
-	$(TEXMFHOME)/../bin/generateAcronyms.py -g   $(tex)
-	$(TEXMFHOME)/../bin/generateAcronyms.py -g -u   $(tex) aglossary.tex
+acronyms.tex :$(tex) myacronyms.txt
+	python3 ${TEXMFHOME}/../bin/generateAcronyms.py -t "DM"    $(tex)
 
 clean :
 	latexmk -c
