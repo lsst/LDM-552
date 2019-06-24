@@ -36,13 +36,13 @@ Test Id & Test Name\tabularnewline
     \hyperref[lvv-t1086]{LVV-T1086} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1086}{Full Table Scans Functional Test} \tabularnewline
     \hyperref[lvv-t1087]{LVV-T1087} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{Full table joins, single query at a time} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{Full Table Joins Functional Test} \tabularnewline
     \hyperref[lvv-t1088]{LVV-T1088} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{Concurrent scans and stress test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{Concurrent Scans Scaling Test} \tabularnewline
     \hyperref[lvv-t1089]{LVV-T1089} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{Load test 70 LV + 20 HV} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{Load Test} \tabularnewline
     \hyperref[lvv-t1090]{LVV-T1090} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{Heavy load test 100 LV + 30 HV} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{Heavy Load Test} \tabularnewline
     \hyperref[lvv-t1091]{LVV-T1091} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1091}{SQL queries tests} \tabularnewline
 \bottomrule
@@ -493,27 +493,24 @@ Test & Fritz Mueller
 
 \subsubsection{Test Items}
 Before running any of the performance test cases, Qserv must be
-installed on an appropriate test cluster (e.g.\\
-the test machine cluster at CC-IN2P3). ~To upgrade Qserv software on the
-cluster in preparation for testing,\\
-follow directions at
+installed on an appropriate test cluster (e.g. the test machine cluster
+at CC-IN2P3). ~To upgrade Qserv software on the cluster in preparation
+for testing, follow directions at
 http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html.\\
 ~\\
 The performance tests will also require an appropriately sized test
-dataset to be synthesized and ingested,\\
-per the yearly dataset sizing schedule described in LVV-T1022
-(QSERV-PRF-10-00). ~Tools\\
-for synthesis of ingest of test datasets may be found in the LSST github
-repot at https://github.com/lsst-dm/db\_tests\_kpm20. ~Detailed use and
-context information for the tools is described in
+dataset to be synthesized and ingested, per the yearly dataset sizing
+schedule described in LVV-T1022 (QSERV-PRF-10-00). ~Tools for synthesis
+of ingest of test datasets may be found in the LSST github repot at
+https://github.com/lsst-dm/db\_tests\_kpm20. ~Detailed use and context
+information for the tools is described in
 https://jira.lsstcorp.org/browse/DM-8405.\\
 ~\\
 It has also been found that the Qserv shard servers must have
-engine-independent statistics\\
-loaded for the larger tables in the test dataset, and be properly\\
-configured so that the MariaDB query planner can make use of those
-statistics. ~More information on this\\
-issue is available at
+engine-independent statistics loaded for the larger tables in the test
+dataset, and be properly configured so that the MariaDB query planner
+can make use of those statistics. ~More information on this issue is
+available at
 https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
 
 
@@ -1458,7 +1455,9 @@ Test & Fritz Mueller
 \end{itemize}
 
 \subsubsection{Test Items}
-Full table scans, single query at a time
+The objective of this test is to ensure that the full table scan queries
+are performing as expected and establish a timing baseline benchmark for
+these types of queries.
 
 
 
@@ -1512,8 +1511,8 @@ and record execution time and output size.
             \begin{minipage}[t]{13cm}{\footnotesize
             Execute query:\\
 ~\\
-\textbf{SELECT} COUNT(*) \textbf{FROM} Source \textbf{WHERE} flux
-\textbackslash{}\_sinc \textbf{BETWEEN} 1 \textbf{AND} 1.1\\
+\textbf{SELECT} COUNT(*) \textbf{FROM} Source \textbf{WHERE} flux\_sinc
+\textbf{BETWEEN} 1 \textbf{AND} 1.1\\
 ~\\
 and record the execution time
 
@@ -1558,7 +1557,7 @@ and record the execution time
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{LVV-T1087}
-    - Full table joins, single query at a time}\label{lvv-t1087}
+    - Full Table Joins Functional Test}\label{lvv-t1087}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -1576,7 +1575,9 @@ Test & Fritz Mueller
 \end{itemize}
 
 \subsubsection{Test Items}
-TBC
+The objective of this test is to ensure that the full table join queries
+are performing as expected and establish a timing baseline benchmark for
+these types of queries.
 
 
 
@@ -1670,7 +1671,7 @@ and record execution time.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{LVV-T1088}
-    - Concurrent scans and stress test}\label{lvv-t1088}
+    - Concurrent Scans Scaling Test}\label{lvv-t1088}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -1682,13 +1683,16 @@ Test & Fritz Mueller
 \end{longtable}
 
 \subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-187}{LVV-187} - DMS-REQ-0356-V-01: Radius for low-volume query
-
-\end{itemize}
+    None.
 
 \subsubsection{Test Items}
-to be completed
+The objective of this procedure is to establish the growth trend for
+average query execution time of\\
+full-table-scan queries in the pool of interest, as a function of query
+concurrency. ~The test shall\\
+be considered passed if the growth rate is sub-linear (ideally, nearly
+flat) within the limits of\\
+machine resource exhaustion.
 
 
 
@@ -1772,7 +1776,7 @@ QSERV has been set-up following procedure at ~LVV-T1017
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{LVV-T1089}
-    - Load test 70 LV + 20 HV}\label{lvv-t1089}
+    - Load Test}\label{lvv-t1089}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -1790,7 +1794,10 @@ Test & Fritz Mueller
 \end{itemize}
 
 \subsubsection{Test Items}
-to be completed
+This test will check that Qserv is able to meet average query completion
+time targets per query class under a representative load of simultaneous
+high and low volume queries while running against an appropriately
+scaled test catalog.
 
 
 
@@ -1840,7 +1847,7 @@ mix we are aiming for\\
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{LVV-T1090}
-    - Heavy load test 100 LV + 30 HV}\label{lvv-t1090}
+    - Heavy Load Test}\label{lvv-t1090}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -1858,7 +1865,10 @@ Test & Fritz Mueller
 \end{itemize}
 
 \subsubsection{Test Items}
-to be completed
+This test will check that Qserv is able to meet average query completion
+time targets per query class under a higher than average load of
+simultaneous high and low volume queries while running against an
+appropriately scaled test catalog.
 
 
 
