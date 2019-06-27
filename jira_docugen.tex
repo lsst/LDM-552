@@ -164,6 +164,8 @@ Test & Fritz Mueller
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
 
+\item \href{https://jira.lsstcorp.org/browse/LVV-9787}{LVV-9787} - DMS-REQ-0356-V-04: Max time to retrieve low-volume query results
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -211,7 +213,7 @@ and record execution time.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Query runs in less than 1 second.
+                Query runs in less than 10 seconds.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -236,7 +238,7 @@ and record execution time.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Query runs in less than 5 seconds.
+                Query runs in less than 10 seconds.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -258,6 +260,11 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
+the Object table
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
 
 \end{itemize}
 
@@ -308,7 +315,8 @@ and record execution time and output size.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Query expected to run in 20 minutes, output expected less then 100MB
+                Query expected to run in less than 1 hour.\\
+~\\
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -332,7 +340,7 @@ and record the execution time
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Query expected to run in 100 minutes
+                Query expected to run in less than 12 hours.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -356,7 +364,7 @@ and record the execution time
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Query expected to run in 50 minutes
+                Query expected to run in less than 12 hours.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -378,6 +386,8 @@ Test & Fritz Mueller
 \subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
 
 \end{itemize}
 
@@ -428,23 +438,7 @@ and record execution time.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Expected to run as follows:
-
-\begin{itemize}
-\tightlist
-\item
-  2015: less than XXX
-\item
-  2016:~
-\item
-  2017:
-\item
-  2018:
-\item
-  2019:
-\item
-  2020:
-\end{itemize}
+                Query expected to run in less than 12 hours.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -470,7 +464,7 @@ and record execution time.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                to be specied
+                Query expected to run in less than 12 hours.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -502,10 +496,9 @@ the Object table
 
 \subsubsection{Test Items}
 This test will show that average completion-time of full-scan queries of
-the Object catalog table grow\\
-sub-linearly with respect to the number of simultaneously active
-full-scan queries, within the limits of\\
-machine resource exhaustion.
+the Object catalog table grows sub-linearly with respect to the number
+of simultaneously active full-scan queries, within the limits of machine
+resource exhaustion.
 
 
 
@@ -541,7 +534,11 @@ machine resource exhaustion.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            
+            Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
+runQueries.py script. Set CONCURRENCY initially to 1 for the query pool
+of interest, and to 0 for all other query pools. Set TARGET\_RATES for
+the query pool of interest to the yearly value per table in section 2.2.
+
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
@@ -550,6 +547,60 @@ machine resource exhaustion.
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute the runQueries.py script and let it run for at least one, but
+preferably several, query cycles.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine log file output and compile performance statistics to obtain a
+growth curve point for the pool of interest for the test report.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Adjust the CONCURRENCY value for the pool of interest and repeat from
+step 2 to establish the growth trend and machine resource exhaustion
+cutoff for the query pool of interest to an acceptable degree of
+accuracy.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Average query execution time for full scan queries of each class should
+be demonstrated to grow sub-linearly in the number of concurrent queries
+to the limits of machine resource exhaustion.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
     \end{longtable}
 
@@ -646,7 +697,19 @@ Test & Fritz Mueller
 \end{longtable}
 
 \subsubsection{Verification Elements}
-    None.
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-9786}{LVV-9786} - DMS-REQ-0356-V-03: Min number of simultaneous low-volume query users
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-9787}{LVV-9787} - DMS-REQ-0356-V-04: Max time to retrieve low-volume query results
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
+the Object table
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-3403}{LVV-3403} - DMS-REQ-0361-V-01: Simultaneous users for high-volume queries
+
+\end{itemize}
 
 \subsubsection{Test Items}
 This test will check that Qserv is able to meet average query completion
