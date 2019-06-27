@@ -146,12 +146,14 @@ In order to ensure that QSERV is able to meet the performance, specific test cas
 These test cases will be executed each year, in order to denmonstrate that query performances are as described in the following table.
 
 
-    \begin{tabular}{|l|c|c|c|c|c|c|c|}\hline
-      \multicolumn{2}{|c|}{\textbf{Query Class}}
+    \begin{tabular}{lccccccc}\hline
+      \multicolumn{2}{c}{\textbf{Query Class}}
         &\textbf{2015}&\textbf{2016}&\textbf{2017}&\textbf{2018}&\textbf{2019}&\textbf{2020}\\\hline
+      \multicolumn{2}{c}{Dataset size, relative to DR-1} 
+                              & 10\% & 20\% & 30\% & 50\% & 75\% & 100\% \\ \hline
       \multirow{2}{*}{\textbf{LV}}
-        &\textbf{\# queries}  & 50 & 60 & 70 & 80 & 90 & 100 \\%\cline{2-8}
-        &\textbf{time (sec)}  & 10 & 10 & 10 & 10 & 10 &  10 \\\hline
+        &\textbf{\# queries}  & 50   & 60   & 70   & 80   & 90   & 100 \\%\cline{2-8}
+        &\textbf{time (sec)}  & 10   & 10   & 10   & 10   & 10   &  10 \\\hline
       \multirow{2}{*}{\textbf{FTSObj}}
         &\textbf{\# queries}  &  3 &  4 &  8 & 12 & 16 &  20 \\%\cline{2-8}
         &\textbf{time (hours)}& 12 &  1 &  1 &  1 &  1 &   1 \\\hline
@@ -209,35 +211,6 @@ With the introduction of the Jira Test Management, the following definitions hav
   \item[LVV-TYYY]{: Are Test Cases. Each Test Case is associated with a Verification Element, where YYY is the Test Case identifier. There can be multiple test cases associated with a Verification Element.}
 \end{description}
 
-All tests cases defined before the introduction of the Jira Test Management approach, are named according to the pattern \textsc{prod-scope-xx-yy} where:
-
-\begin{description}[font=\normalfont\scshape]
-
-  \item[prod]{The product code, per \citeds{LDM-294}. Relevant entries for this document are:
-    \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
-      \item[qserv]{Qserv distributed database system}
-    \end{description}
-  }
-
-  \item[scope]{The type of test being described:
-    \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
-      \item[acp]{concerning acceptance testing}
-      \item[bck]{concerning backup and restore testing}
-      \item[fun]{concerning functional testing}
-      \item[ins]{concerning installation testing}
-      \item[int]{concerning integration testing}
-      \item[itf]{concerning interface testing}
-      \item[mnt]{concerning maintenance testing}
-      \item[prf]{concerning performance testing}
-      \item[reg]{concerning regression testing}
-      \item[ver]{concerning verification testing}
-    \end{description}
-  }
-
-  \item[xx]{Test design number (in increments of 10)}
-  \item[yy]{Test case number (in increments of 5)}
-
-\end{description}
 
 \input{jira_docugen.tex}
 
