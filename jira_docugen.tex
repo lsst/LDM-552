@@ -12,7 +12,7 @@ Test Id & Test Name\tabularnewline
 \midrule
 \endhead
     \hyperref[lvv-t1017]{LVV-T1017} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{QSERV Preparation} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{Qserv Preparation} \tabularnewline
     \hyperref[lvv-t1085]{LVV-T1085} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1085}{Short Queries Functional Test} \tabularnewline
     \hyperref[lvv-t1086]{LVV-T1086} &
@@ -25,8 +25,6 @@ Test Id & Test Name\tabularnewline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{Load Test} \tabularnewline
     \hyperref[lvv-t1090]{LVV-T1090} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{Heavy Load Test} \tabularnewline
-    \hyperref[lvv-t1091]{LVV-T1091} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1091}{SQL queries tests} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -35,7 +33,7 @@ Test Id & Test Name\tabularnewline
 \section{Test Cases}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{LVV-T1017}
-    - QSERV Preparation}\label{lvv-t1017}
+    - Qserv Preparation}\label{lvv-t1017}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -93,7 +91,7 @@ https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Follow directions at
+            Install/upgrade Qserv on a test cluster, following directions at
 http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html
 
             \vspace{\dp0}
@@ -105,10 +103,48 @@ http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.h
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Qserv installed.
+                Qserv installed
 
                 \vspace{\dp0}
                 } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Synthesize and load and appropriately sized test dataset per the yearly
+dataset sizing schedule described in section 2.2.1. Tools for synthesis
+of ingest of test datasets may be found in the LSST GitHub repot at
+https://github.com/lsst dm/db\_tests\_kpm*.~ Detailed use and context
+information for the tools is described in
+https://jira.lsstcorp.org/browse/DM-8405.\\
+~\\
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Test dataset loaded
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
         \\ \midrule
     \end{longtable}
 
@@ -655,61 +691,6 @@ mix we are aiming for
 
                 \vspace{\dp0}
                 } \end{minipage}
-        \\ \midrule
-    \end{longtable}
-
-\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1091}{LVV-T1091}
-    - SQL queries tests}\label{lvv-t1091}
-
-\begin{longtable}[]{llllll}
-\toprule
-Version & Status & Priority & Verification Type & Owner
-\\\midrule
-1 & Draft & Normal &
-Test & Fritz Mueller
-\\\bottomrule
-\end{longtable}
-
-\subsubsection{Verification Elements}
-\begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
-
-\end{itemize}
-
-\subsubsection{Test Items}
-
-
-
-
-\subsubsection{Predecessors}
-
-\subsubsection{Environment Needs}
-
-\paragraph{Software}
-
-\paragraph{Hardware}
-
-\subsubsection{Input Specification}
-
-\subsubsection{Output Specification}
-
-\subsubsection{Test Procedure}
-    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
-    %\toprule
-    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
-    \endhead
-
-            \multirow{3}{*}{ 1 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
         \\ \midrule
     \end{longtable}
 
