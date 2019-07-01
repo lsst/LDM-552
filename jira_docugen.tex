@@ -676,12 +676,39 @@ QSERV has been set-up following procedure at ~LVV-T1017
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            70 low volume and 20 high volume queries (8 scans for Object, 2 scans
-for Source, 2 scans for ForcedSource, 4 Object-Source joins, 2
-Object-ForcedSource joins and 2 NearNeigh- bor queries), all running
-simultaneously with appropriate sleep in between queries to enforce the
-mix we are aiming for\\
-~\\
+            Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
+runQueries.py script. ~Set CONCURRENCY and TARGET\_RATES for all pools
+to the yearly value per table in section 2.2.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute the runQueries.py script and let it run for several test cycles.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine log file output and compile average query execution times per
+query type, and compare to yearly target values per table in section
+2.2.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -751,11 +778,12 @@ QSERV has been set-up following procedure at ~LVV-T1017
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            100 low volume and 30 high volume queries (12 scans for Object, 3 scans
-for Source, 3 scans for ForcedSource, 6 Object-Source joins, 3
-Object-ForcedSource join and 3 NearNeigh- bor queries), all running
-simultaneously with appropriate sleep in between queries to enforce the
-mix we are aiming for
+            Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
+runQueries.py script. ~Set CONCURRENCY and TARGET\_RATES for LV query
+pool to 2020 value per table in section 2.2. ~Set CONCURRENCY and
+TARGET\_RATES for all other query pools to values in next column over
+from current year column (or to 2020 values +10\% if year is 2020) per
+table in section 2.2.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -765,6 +793,40 @@ mix we are aiming for
                 \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute the runQueries.py script and let it run for 24 hrs.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine log file output and compile average query execution times per
+query type.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                ​​​​Consult yearly target values per table in section 2.2.
+
+                \vspace{\dp0}
+                } \end{minipage}
         \\ \midrule
     \end{longtable}
 
