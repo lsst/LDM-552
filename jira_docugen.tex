@@ -1,7 +1,7 @@
 % generated from JIRA project LVV
 % using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
 % Collecting ATM data from folder: "/Data Management/Software Products/Supporting SW/Distrib Database|LDM-552"
-% using docsteady version 1.2rc2
+% using docsteady version 1.2rc3
 % Please do not edit -- update information in Jira instead
 
 \section{Test Cases Summary}\label{test-cases-summary}
@@ -12,28 +12,40 @@ Test Id & Test Name\tabularnewline
 \midrule
 \endhead
     \hyperref[lvv-t1017]{LVV-T1017} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{Qserv Preparation} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{Qserv Preparation
+} \tabularnewline
     \hyperref[lvv-t1085]{LVV-T1085} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1085}{Short Queries Functional Test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1085}{Short Queries Functional Test
+} \tabularnewline
     \hyperref[lvv-t1086]{LVV-T1086} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1086}{Full Table Scans Functional Test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1086}{Full Table Scans Functional Test
+} \tabularnewline
     \hyperref[lvv-t1087]{LVV-T1087} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{Full Table Joins Functional Test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{Full Table Joins Functional Test
+} \tabularnewline
     \hyperref[lvv-t1088]{LVV-T1088} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{Concurrent Scans Scaling Test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{Concurrent Scans Scaling Test
+} \tabularnewline
     \hyperref[lvv-t1089]{LVV-T1089} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{Load Test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{Load Test
+} \tabularnewline
     \hyperref[lvv-t1090]{LVV-T1090} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{Heavy Load Test} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{Heavy Load Test
+} \tabularnewline
 \bottomrule
 \end{longtable}
 
 \newpage
 
-\section{Test Cases}
+\section{Active Test Cases}
+
+This section documents all active test cases that have a status in the Jira/ATM system of Draft, Defined or Approved.
+
+
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{LVV-T1017}
-    - Qserv Preparation}\label{lvv-t1017}
+    - Qserv Preparation
+}\label{lvv-t1017}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -136,7 +148,8 @@ https://jira.lsstcorp.org/browse/DM-8405.\\
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1085}{LVV-T1085}
-    - Short Queries Functional Test}\label{lvv-t1085}
+    - Short Queries Functional Test
+}\label{lvv-t1085}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -233,7 +246,8 @@ and record execution time.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1086}{LVV-T1086}
-    - Full Table Scans Functional Test}\label{lvv-t1086}
+    - Full Table Scans Functional Test
+}\label{lvv-t1086}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -359,7 +373,8 @@ and record the execution time
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{LVV-T1087}
-    - Full Table Joins Functional Test}\label{lvv-t1087}
+    - Full Table Joins Functional Test
+}\label{lvv-t1087}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -459,7 +474,8 @@ and record execution time.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{LVV-T1088}
-    - Concurrent Scans Scaling Test}\label{lvv-t1088}
+    - Concurrent Scans Scaling Test
+}\label{lvv-t1088}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -521,6 +537,27 @@ resource exhaustion.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
+            Repeat steps 2 through 5 below, where "pool of interest" is taken first
+to be "FTSObj" and subsequently "FTSSrc":
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                At end of each pass, a graph indicating scan scaling rate and machine
+resource exhaustion cutoff.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
             Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
 runQueries.py script. Set CONCURRENCY initially to 1 for the query pool
 of interest, and to 0 for all other query pools. Set TARGET\_RATES for
@@ -541,7 +578,7 @@ the query pool of interest to the yearly value per table in section 2.2.
                 } \end{minipage}
         \\ \midrule
 
-            \multirow{3}{*}{ 2 } & Description &
+            \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Execute the runQueries.py script and let it run for at least one, but
 preferably several, query cycles.
@@ -561,7 +598,7 @@ preferably several, query cycles.
                 } \end{minipage}
         \\ \midrule
 
-            \multirow{3}{*}{ 3 } & Description &
+            \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Examine log file output and compile performance statistics to obtain a
 growth curve point for the pool of interest for the test report.
@@ -583,7 +620,7 @@ been reached.
                 } \end{minipage}
         \\ \midrule
 
-            \multirow{3}{*}{ 4 } & Description &
+            \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Adjust the CONCURRENCY value for the pool of interest and repeat from
 step 3 to establish the growth trend and machine resource exhaustion
@@ -606,31 +643,11 @@ to the limits of machine resource exhaustion.
                 \vspace{\dp0}
                 } \end{minipage}
         \\ \midrule
-
-            \multirow{3}{*}{ 5 } & Description &
-            \begin{minipage}[t]{13cm}{\footnotesize
-            Repeat steps 2 through 5 below, where "pool of interest" is taken first
-to be "FTSObj" and subsequently "FTSSrc":
-
-            \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Test Data &
-            \begin{minipage}[t]{13cm}{\footnotesize
-                No data.
-                \vspace{\dp0}
-            } \end{minipage} \\ \cline{2-3}
-            & Expected Result &
-                \begin{minipage}[t]{13cm}{\footnotesize
-                At end of each pass, a graph indicating scan scaling rate and machine
-resource exhaustion cutoff.
-
-                \vspace{\dp0}
-                } \end{minipage}
-        \\ \midrule
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{LVV-T1089}
-    - Load Test}\label{lvv-t1089}
+    - Load Test
+}\label{lvv-t1089}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -748,7 +765,8 @@ yearly target values in section 2.2.
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{LVV-T1090}
-    - Heavy Load Test}\label{lvv-t1090}
+    - Heavy Load Test
+}\label{lvv-t1090}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -867,4 +885,29 @@ yearly target values in section 2.2.
         \\ \midrule
     \end{longtable}
 
+\newpage
+\section{Reusable Test Cases}
+
+Test cases in this section are made up of commonly encountered steps that have been factored out into modular, reusable scripts.
+These test cases are meant solely for the building of actual tests used for verification, to be inserted in test scripts via the “Call to Test” functionality in Jira/ATM.
+They streamline the process of writing test scripts by providing pre-designed steps, while also ensuring homogeneity throughout the test suite.
+These reusable modules are not themselves verifying requirements.
+Also, these test cases shall not call other reusable test cases in their script.
+
+
+  \textit{No library test cases found.}
+
+
+
+
+\newpage
+\section{Deprecated Test Cases}
+
+This section includes all test cases that have been marked as deprecated.
+These test cases will never be executed again, but have been in the past.
+For this reason it is important to keep them in the baseline as a reference.
+
+  \textit{No deprecated test cases found.}
+
+\newpage
 \appendix
