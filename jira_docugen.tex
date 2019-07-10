@@ -68,8 +68,8 @@ http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.h
 ~\\
 The performance tests will also require an appropriately sized test
 dataset to be synthesized and ingested, per the yearly dataset sizing
-schedule described in section 2.2.1. ~Tools for synthesis of ingest of
-test datasets may be found in the LSST GitHub repot at
+schedule described in \citeds{LDM-552}, section 2.2.1. ~Tools for synthesis of
+ingest of test datasets may be found in the LSST GitHub repot at
 https://github.com/lsst-dm/db\_tests\_kpm*. ~Detailed use and context
 information for the tools is described in
 https://jira.lsstcorp.org/browse/DM-8405.\\
@@ -124,10 +124,10 @@ http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.h
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Synthesize and load and appropriately sized test dataset per the yearly
-dataset sizing schedule described in section 2.2.1. Tools for synthesis
-of ingest of test datasets may be found in the LSST GitHub repot at
-https://github.com/lsst dm/db\_tests\_kpm*.~ Detailed use and context
-information for the tools is described in
+dataset sizing schedule described in LDM-552, section 2.2.1. Tools for
+synthesis of ingest of test datasets may be found in the LSST GitHub
+repot at https://github.com/lsst dm/db\_tests\_kpm*. ~Detailed use and
+context information for the tools is described in
 https://jira.lsstcorp.org/browse/DM-8405.\\
 ~\\
 
@@ -517,9 +517,9 @@ resource exhaustion.
 \begin{enumerate}
 \tightlist
 \item
-  A test catalog of appropriate size (see schedule detail in section
-  2.2.1), prepared and ingested into the Qserv instance under test as
-  detailed in LVV-T1017.
+  A test catalog of appropriate size (see schedule detail in \citeds{LDM-552},
+  section 2.2.1), prepared and ingested into the Qserv instance under
+  test as detailed in LVV-T1017.
 \item
   The concurrency load execution script, runQueries.py, maintained in
   the LSST Qserv github repository here:
@@ -561,7 +561,8 @@ resource exhaustion cutoff.
             Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
 runQueries.py script. Set CONCURRENCY initially to 1 for the query pool
 of interest, and to 0 for all other query pools. Set TARGET\_RATES for
-the query pool of interest to the yearly value per table in section 2.2.
+the query pool of interest to the yearly value per table in LDM-552,
+section 2.2.1.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -705,7 +706,7 @@ QSERV has been set-up following procedure at ~LVV-T1017
             \begin{minipage}[t]{13cm}{\footnotesize
             Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
 runQueries.py script. ~Set CONCURRENCY and TARGET\_RATES for all pools
-to the yearly value per table in section 2.2.
+to the yearly value per table in LDM-552, section 2.2.1.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -744,8 +745,8 @@ to the yearly value per table in section 2.2.
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Examine log file output and compile average query execution times per
-query type; and compare to yearly target values per table in section
-2.2.
+query type; and compare to yearly target values per table in LDM-552,
+section 2.2.1.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -757,7 +758,7 @@ query type; and compare to yearly target values per table in section
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
                 Average query times per query type equal or less than corresponding
-yearly target values in section 2.2.
+yearly target values in LDM-552, section 2.2.1.
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -824,10 +825,10 @@ QSERV has been set-up following procedure at ~LVV-T1017
             \begin{minipage}[t]{13cm}{\footnotesize
             Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
 runQueries.py script. ~Set CONCURRENCY and TARGET\_RATES for LV query
-pool to 2020 value per table in section 2.2. ~Set CONCURRENCY and
-TARGET\_RATES for all other query pools to values in next column over
-from current year column (or to 2020 values +10\% if year is 2020) per
-table in section 2.2.
+pool to 2020 value per table in LDM-552, section 2.2.1.~ Set CONCURRENCY
+and TARGET\_RATES for all other query pools to values in next column
+over from current year column (or to 2020 values +10\% if year is 2020)
+per table in LDM-552, section 2.2.1.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -878,7 +879,7 @@ query type.
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
                 Average query times per query type equal or less than corresponding
-yearly target values in section 2.2.
+yearly target values in LDM-552, section 2.2.1.
 
                 \vspace{\dp0}
                 } \end{minipage}
