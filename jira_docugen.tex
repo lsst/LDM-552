@@ -1,0 +1,914 @@
+% generated from JIRA project LVV
+% using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
+% Collecting ATM data from folder: "/Data Management/Software Products/Supporting SW/Distrib Database|LDM-552"
+% using docsteady version 1.2rc3
+% Please do not edit -- update information in Jira instead
+
+\section{Test Cases Summary}\label{test-cases-summary}
+
+\begin{longtable}[]{p{3cm}p{13cm}}
+\toprule
+Test Id & Test Name\tabularnewline
+\midrule
+\endhead
+    \hyperref[lvv-t1017]{LVV-T1017} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{Qserv Preparation
+} \tabularnewline
+    \hyperref[lvv-t1085]{LVV-T1085} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1085}{Short Queries Functional Test
+} \tabularnewline
+    \hyperref[lvv-t1086]{LVV-T1086} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1086}{Full Table Scans Functional Test
+} \tabularnewline
+    \hyperref[lvv-t1087]{LVV-T1087} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{Full Table Joins Functional Test
+} \tabularnewline
+    \hyperref[lvv-t1088]{LVV-T1088} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{Concurrent Scans Scaling Test
+} \tabularnewline
+    \hyperref[lvv-t1089]{LVV-T1089} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{Load Test
+} \tabularnewline
+    \hyperref[lvv-t1090]{LVV-T1090} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{Heavy Load Test
+} \tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\section{Active Test Cases}
+
+This section documents all active test cases that have a status in the Jira/ATM system of Draft, Defined or Approved.
+
+
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1017}{LVV-T1017}
+    - Qserv Preparation
+}\label{lvv-t1017}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Approved & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+    None.
+
+\subsubsection{Test Items}
+Before running any of the performance test cases, Qserv must be
+installed on an appropriate test cluster (e.g. the test machine cluster
+at CC-IN2P3). ~To upgrade Qserv software on the cluster in preparation
+for testing, follow directions at
+http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html.\\
+~\\
+The performance tests will also require an appropriately sized test
+dataset to be synthesized and ingested, per the yearly dataset sizing
+schedule described in \citeds{LDM-552}, section 2.2.1. ~Tools for synthesis of
+ingest of test datasets may be found in the LSST GitHub repot at
+https://github.com/lsst-dm/db\_tests\_kpm*. ~Detailed use and context
+information for the tools is described in
+https://jira.lsstcorp.org/browse/DM-8405.\\
+~\\
+It has also been found that the Qserv shard servers must have
+engine-independent statistics loaded for the larger tables in the test
+dataset, and be properly configured so that the MariaDB query planner
+can make use of those statistics. ~More information on this issue is
+available at
+https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Install/upgrade Qserv on a test cluster, following directions at
+http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Qserv installed
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Synthesize and load and appropriately sized test dataset per the yearly
+dataset sizing schedule described in LDM-552, section 2.2.1. Tools for
+synthesis of ingest of test datasets may be found in the LSST GitHub
+repot at https://github.com/lsst dm/db\_tests\_kpm*. ~Detailed use and
+context information for the tools is described in
+https://jira.lsstcorp.org/browse/DM-8405.\\
+~\\
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Test dataset loaded
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1085}{LVV-T1085}
+    - Short Queries Functional Test
+}\label{lvv-t1085}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-9787}{LVV-9787} - DMS-REQ-0356-V-04: Max time to retrieve low-volume query results
+
+\end{itemize}
+
+\subsubsection{Test Items}
+The objective of this test is to ensure that the short queries are
+performing as expected and establish a timing baseline benchmark for
+these types of queries.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+QSERV has been set-up following procedure at ~LVV-T1017.
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute single object selection:\\
+~\\
+\textbf{SELECT} * \textbf{FROM} Object~\textbf{WHERE} deepSourceId =
+9292041530376264\\
+~\\
+and record execution time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query runs in less than 10 seconds.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute spatial area selection from Object:\\
+~\\
+\textbf{SELECT COUNT(*)} \textbf{FROM} Object \textbf{WHERE}~\\
+
+~qserv\_areaspec\_box(316.582327, −6.839078, 316.653938, −6.781822)
+
+and record execution time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query runs in less than 10 seconds.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1086}{LVV-T1086}
+    - Full Table Scans Functional Test
+}\label{lvv-t1086}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
+the Object table
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
+
+\end{itemize}
+
+\subsubsection{Test Items}
+The objective of this test is to ensure that the full table scan queries
+are performing as expected and establish a timing baseline benchmark for
+these types of queries.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+QSERV has been set-up following procedure at ~LVV-T1017.
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute query:\\
+~\\
+\textbf{SELECT} ra , decl , u\_psfFlux , g\_psfFlux , r\_psfFlux
+\textbf{FROM} Object\\
+\textbf{WHERE} y\_shapeIxx \textbf{BETWEEN} 20 \textbf{AND} 20.1\\
+~\\
+~\\
+and record execution time and output size.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query expected to run in less than 1 hour.\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute query:\\
+~\\
+\textbf{SELECT} COUNT(*) \textbf{FROM} Source \textbf{WHERE} flux\_sinc
+\textbf{BETWEEN} 1 \textbf{AND} 1.1\\
+~\\
+and record the execution time
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query expected to run in less than 12 hours.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute query:\\
+~\\
+\textbf{SELECT} COUNT(*) \textbf{FROM} ForcedSource \textbf{WHERE}
+psfFlux \textbf{BETWEEN} 0.1 \textbf{AND} 0.2\\
+~\\
+and record the execution time
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query expected to run in less than 12 hours.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1087}{LVV-T1087}
+    - Full Table Joins Functional Test
+}\label{lvv-t1087}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
+
+\end{itemize}
+
+\subsubsection{Test Items}
+The objective of this test is to ensure that the full table join queries
+are performing as expected and establish a timing baseline benchmark for
+these types of queries.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+QSERV has been set-up following procedure at ~LVV-T1017.
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute query:\\
+~\\
+\textbf{SELECT} o.deepSourceId, s.objectId, s.id, o.ra, o.decl\\
+\textbf{~ ~ FROM} Object o, Source s WHERE o.deepSourceId=s.objectId\\
+\hspace*{0.333em} ~ \textbf{AND} s . flux\_sinc \textbf{BETWEEN} 0.3
+\textbf{AND} 0.31\\
+~\\
+and record execution time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query expected to run in less than 12 hours.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute query:\\
+~\\
+\textbf{SELECT} o.deepSourceId, f.psfFlux \textbf{FROM} Object o,
+ForcedSource f\\
+\textbf{~ ~ WHERE} o.deepSourceId=f.deepSourceId\\
+\textbf{~ ~ AND} f . psfFlux \textbf{BETWEEN} 0.13 \textbf{AND} 0.14\\
+~\\
+and record execution time.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Query expected to run in less than 12 hours.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1088}{LVV-T1088}
+    - Concurrent Scans Scaling Test
+}\label{lvv-t1088}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
+the Object table
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-3403}{LVV-3403} - DMS-REQ-0361-V-01: Simultaneous users for high-volume queries
+
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will show that average completion-time of full-scan queries of
+the Object catalog table grows sub-linearly with respect to the number
+of simultaneously active full-scan queries, within the limits of machine
+resource exhaustion.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+\begin{enumerate}
+\tightlist
+\item
+  A test catalog of appropriate size (see schedule detail in \citeds{LDM-552},
+  section 2.2.1), prepared and ingested into the Qserv instance under
+  test as detailed in LVV-T1017.
+\item
+  The concurrency load execution script, runQueries.py, maintained in
+  the LSST Qserv github repository here:
+  https://github.com/lsst/qserv/blob/master/admin/tools/docker/deployment/in2p3/runQueries.py
+\end{enumerate}
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Repeat steps 2 through 5 below, where "pool of interest" is taken first
+to be "FTSObj" and subsequently "FTSSrc":
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                At end of each pass, a graph indicating scan scaling rate and machine
+resource exhaustion cutoff.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
+runQueries.py script. Set CONCURRENCY initially to 1 for the query pool
+of interest, and to 0 for all other query pools. Set TARGET\_RATES for
+the query pool of interest to the yearly value per table in LDM-552,
+section 2.2.1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                rueQueries.py script updated with appropriate values for test iteration
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute the runQueries.py script and let it run for at least one, but
+preferably several, query cycles.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Test script executes producing log file.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine log file output and compile performance statistics to obtain a
+growth curve point for the pool of interest for the test report.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Logs indicate either successful test run, providing another growth point
+for curve, or errors indicating machine resource exhaustion cutoff has
+been reached.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Adjust the CONCURRENCY value for the pool of interest and repeat from
+step 3 to establish the growth trend and machine resource exhaustion
+cutoff for the query pool of interest to an acceptable degree of
+accuracy.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Average query execution time for full scan queries of each class should
+be demonstrated to grow sub-linearly in the number of concurrent queries
+to the limits of machine resource exhaustion.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1089}{LVV-T1089}
+    - Load Test
+}\label{lvv-t1089}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-9786}{LVV-9786} - DMS-REQ-0356-V-03: Min number of simultaneous low-volume query users
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-9787}{LVV-9787} - DMS-REQ-0356-V-04: Max time to retrieve low-volume query results
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
+the Object table
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-3403}{LVV-3403} - DMS-REQ-0361-V-01: Simultaneous users for high-volume queries
+
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will check that Qserv is able to meet average query completion
+time targets per query class under a representative load of simultaneous
+high and low volume queries while running against an appropriately
+scaled test catalog.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+QSERV has been set-up following procedure at ~LVV-T1017
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
+runQueries.py script. ~Set CONCURRENCY and TARGET\_RATES for all pools
+to the yearly value per table in LDM-552, section 2.2.1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Script updated with appropriate values.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute the runQueries.py script and let it run for 24 hours.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Script runs without error and produces output log.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine log file output and compile average query execution times per
+query type; and compare to yearly target values per table in LDM-552,
+section 2.2.1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Average query times per query type equal or less than corresponding
+yearly target values in LDM-552, section 2.2.1.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1090}{LVV-T1090}
+    - Heavy Load Test
+}\label{lvv-t1090}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Fritz Mueller
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-9786}{LVV-9786} - DMS-REQ-0356-V-03: Min number of simultaneous low-volume query users
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-9787}{LVV-9787} - DMS-REQ-0356-V-04: Max time to retrieve low-volume query results
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-188}{LVV-188} - DMS-REQ-0357-V-01: Result latency for high-volume full-sky queries on
+the Object table
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-185}{LVV-185} - DMS-REQ-0354-V-01: Result latency for high-volume complex queries
+
+\item \href{https://jira.lsstcorp.org/browse/LVV-3403}{LVV-3403} - DMS-REQ-0361-V-01: Simultaneous users for high-volume queries
+
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will check that Qserv is able to meet average query completion
+time targets per query class under a higher than average load of
+simultaneous high and low volume queries while running against an
+appropriately scaled test catalog.
+
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+QSERV has been set-up following procedure at ~LVV-T1017
+
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Inspect and modify the CONCURRENCY and TARGET\_RATES dictionaries in the
+runQueries.py script. ~Set CONCURRENCY and TARGET\_RATES for LV query
+pool to 2020 value per table in LDM-552, section 2.2.1.~ Set CONCURRENCY
+and TARGET\_RATES for all other query pools to values in next column
+over from current year column (or to 2020 values +10\% if year is 2020)
+per table in LDM-552, section 2.2.1.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Script updated with appropriate values.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Execute the runQueries.py script and let it run for 24 hrs.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Script runs without error and produces output log.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Examine log file output and compile average query execution times per
+query type.
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Average query times per query type equal or less than corresponding
+yearly target values in LDM-552, section 2.2.1.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\newpage
+\section{Reusable Test Cases}
+
+Test cases in this section are made up of commonly encountered steps that have been factored out into modular, reusable scripts.
+These test cases are meant solely for the building of actual tests used for verification, to be inserted in test scripts via the “Call to Test” functionality in Jira/ATM.
+They streamline the process of writing test scripts by providing pre-designed steps, while also ensuring homogeneity throughout the test suite.
+These reusable modules are not themselves verifying requirements.
+Also, these test cases shall not call other reusable test cases in their script.
+
+
+  \textit{No library test cases found.}
+
+
+
+
+\newpage
+\section{Deprecated Test Cases}
+
+This section includes all test cases that have been marked as deprecated.
+These test cases will never be executed again, but have been in the past.
+For this reason it is important to keep them in the baseline as a reference.
+
+  \textit{No deprecated test cases found.}
+
+\newpage
+\appendix

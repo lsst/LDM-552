@@ -1,27 +1,37 @@
 \documentclass[DM,lsstdraft,STS,toc]{lsstdoc}
 \usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{arydshln}
+
 \input meta.tex
 
-\begin{document}
+\setcounter{tocdepth}{2}
 
-\def\product{Qserv}
+\def\product{Distributed Database}
 
 \setDocCompact{true}
 
 \title[STS for \product]{\product{} Software Test Specification}
 
 \author{Fritz Mueller}
-\setDocRef{\lsstDocType-\lsstDocNum}
+\setDocRef{LDM-552}
 \date{\vcsdate}
 \setDocUpstreamLocation{\url{https://github.com/lsst/LDM-552}}
+
 
 \setDocAbstract{
 This document describes the detailed test specification for the \product{}.
 }
 
 \setDocChangeRecord{%
+    \addtohist{}{2019-06-14}{Autogenerate from Jira.}{G.~Comoretto}
     \addtohist{}{2017-07-02}{Initial draft.}{F.~Mueller}
 }
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
 
 \maketitle
 
@@ -63,12 +73,6 @@ the LSST system (as described in \citeds{LDM-148}):
   \citeds{LDM-503} & LSST DM Test Plan \\
   \citeds{LDM-555} & LSST DM Database Requirements \\
 \end{tabular}
-
-\subsection{References}
-\label{sec:references
-}
-\renewcommand{\refname}{}
-\bibliography{lsst,refs,books,refs_ads}
 
 \newpage
 \section{Approach}
@@ -135,6 +139,42 @@ reliability, and performance/scale testing -- a bare minimum required to conduct
 and verify that \product{} remains on a realistic path towards meeting its most technically challenging
 requirements: those related to successful operability at the scale that will be required by LSST.
 
+
+\subsubsection{Performances}
+
+In order to ensure that QSERV is able to meet the performance, specific test cases have been designed.
+These test cases will be executed each year, in order to denmonstrate that query performances are as described in the following table.
+
+
+    \begin{tabular}{lccccccc}\hline
+      \multicolumn{2}{c}{\textbf{Query Class}}
+        &\textbf{2015}&\textbf{2016}&\textbf{2017}&\textbf{2018}&\textbf{2019}&\textbf{2020}\\\hline
+      \multicolumn{2}{c}{Dataset size, relative to DR-1} 
+                              & 10\% & 20\% & 30\% & 50\% & 75\% & 100\% \\ \hline
+      \multirow{2}{*}{\textbf{LV}}
+        &\textbf{\# queries}  & 50   & 60   & 70   & 80   & 90   & 100 \\%\cline{2-8}
+        &\textbf{time (sec)}  & 10   & 10   & 10   & 10   & 10   &  10 \\\hline
+      \multirow{2}{*}{\textbf{FTSObj}}
+        &\textbf{\# queries}  &  3 &  4 &  8 & 12 & 16 &  20 \\%\cline{2-8}
+        &\textbf{time (hours)}& 12 &  1 &  1 &  1 &  1 &   1 \\\hline
+      \multirow{2}{*}{\textbf{FTSSrc}}
+        &\textbf{\# queries}  &  1 &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
+        &\textbf{time (hours)}& 12 & 12 & 12 & 12 & 12 &  12 \\\hline
+      \multirow{2}{*}{\textbf{FTSFSrc}}
+        &\textbf{\# queries}  &    &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
+        &\textbf{time (hours)}&    & 12 & 12 & 12 & 12 &  12 \\\hline
+      \multirow{2}{*}{\textbf{joinObjSrc}}
+        &\textbf{\# queries}  &  1 &  2 &  4 &  6 &  8 &  10 \\%\cline{2-8}
+        &\textbf{time (hours)}& 12 & 12 & 12 & 12 & 12 &  12 \\\hline
+      \multirow{2}{*}{\textbf{joinObjFSrc}}
+        &\textbf{\# queries}  &    &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
+        &\textbf{time (hours)}&    & 12 & 12 & 12 & 12 &  12 \\\hline
+      \multirow{2}{*}{\textbf{nearN}}
+        &\textbf{\# queries}  &    &  1 &  2 &  3 &  4 &   5 \\%\cline{2-8}
+        &\textbf{time (hours)}&    &  1 &  1 &  1 &  1 &   1 \\\hline
+    \end{tabular}
+
+
 \subsection{Features not to be tested}
 \label{sec:featnot2test}
 
@@ -163,38 +203,26 @@ Refer to individual test cases where applicable.
 
 \subsection{Naming convention}
 
-All tests are named according to the pattern \textsc{prod-scope-xx-yy} where:
+With the introduction of the Jira Test Management, the following definitions have to be considered:
 
-\begin{description}[font=\normalfont\scshape]
-
-  \item[prod]{The product code, per \citeds{LDM-294}. Relevant entries for this document are:
-    \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
-      \item[qserv]{Qserv distributed database system}
-    \end{description}
-  }
-
-  \item[scope]{The type of test being described:
-    \begin{description}[font=\normalfont\scshape,topsep=-1.0ex]
-      \item[acp]{concerning acceptance testing}
-      \item[bck]{concerning backup and restore testing}
-      \item[fun]{concerning functional testing}
-      \item[ins]{concerning installation testing}
-      \item[int]{concerning integration testing}
-      \item[itf]{concerning interface testing}
-      \item[mnt]{concerning maintenance testing}
-      \item[prf]{concerning performance testing}
-      \item[reg]{concerning regression testing}
-      \item[ver]{concerning verification testing}
-    \end{description}
-  }
-
-  \item[xx]{Test design number (in increments of 10)}
-  \item[yy]{Test case number (in increments of 5)}
-
+\begin{description}
+  \item[LVV]{: Is the label for the ``LSST Verification and Validation'' project in Jira where all information regarding tests are managed.}
+  \item[LVV-XXX]{: Are Verification Elements, where XXX is the Verification Element identifier.  Each Verification Element is derived from a requirement and has at least one Test Case associated. There can be multiple Verification Elements associated with a requirement.}
+  \item[LVV-TYYY]{: Are Test Cases. Each Test Case is associated with a Verification Element, where YYY is the Test Case identifier. There can be multiple test cases associated with a Verification Element.}
 \end{description}
 
-\input{specs/specs.tex}
-\input{cases/cases.tex}
-\input{procedures/procedures.tex}
+
+\input{jira_docugen.tex}
+
+\newpage
+\appendix
+\input{jira_docugen.appendix.tex}
+
+\section{References\label{sect:references}}
+\renewcommand{\refname}{}
+\bibliography{lsst,refs,books,refs_ads,local.bib}
+
+\section{Acronyms \label{sect:acronyms}} % include acronyms.tex generated by the generateAcronyms.py (in texmf/scripts)
+\input{acronyms}
 
 \end{document}
