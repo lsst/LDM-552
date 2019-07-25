@@ -1,5 +1,5 @@
 % generated from JIRA project LVV
-% using template at /var/jenkins_home/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
+% using template at /Users/GComoretto/.local/lib/python3.7/site-packages/docsteady/templates/dm-spec.latex.jinja2.
 % Collecting ATM data from folder: "/Data Management/Software Products/Supporting SW/Distrib Database|LDM-552"
 % using docsteady version 1.2rc3
 % Please do not edit -- update information in Jira instead
@@ -64,21 +64,18 @@ Before running any of the performance test cases, Qserv must be
 installed on an appropriate test cluster (e.g. the test machine cluster
 at CC-IN2P3). ~To upgrade Qserv software on the cluster in preparation
 for testing, follow directions at
-http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html.\\
-~\\
-The performance tests will also require an appropriately sized test
-dataset to be synthesized and ingested, per the yearly dataset sizing
-schedule described in \citeds{LDM-552}, section 2.2.1. ~Tools for synthesis of
-ingest of test datasets may be found in the LSST GitHub repot at
+http://www.slac.stanford.edu/exp/lsst/qserv/2015\_10/HOW-TO/cluster-deployment.html.\\[2\baselineskip]The
+performance tests will also require an appropriately sized test dataset
+to be synthesized and ingested, per the yearly dataset sizing schedule
+described in \citeds{LDM-552}, section 2.2.1. ~Tools for synthesis of ingest of
+test datasets may be found in the LSST GitHub repot at
 https://github.com/lsst-dm/db\_tests\_kpm*. ~Detailed use and context
 information for the tools is described in
-https://jira.lsstcorp.org/browse/DM-8405.\\
-~\\
-It has also been found that the Qserv shard servers must have
-engine-independent statistics loaded for the larger tables in the test
-dataset, and be properly configured so that the MariaDB query planner
-can make use of those statistics. ~More information on this issue is
-available at
+https://jira.lsstcorp.org/browse/DM-8405.\\[2\baselineskip]It has also
+been found that the Qserv shard servers must have engine-independent
+statistics loaded for the larger tables in the test dataset, and be
+properly configured so that the MariaDB query planner can make use of
+those statistics. ~More information on this issue is available at
 https://confluence.lsstcorp.org/pages/viewpage.action?pageId=58950786.
 
 
@@ -128,8 +125,7 @@ dataset sizing schedule described in LDM-552, section 2.2.1. Tools for
 synthesis of ingest of test datasets may be found in the LSST GitHub
 repot at https://github.com/lsst dm/db\_tests\_kpm*. ~Detailed use and
 context information for the tools is described in
-https://jira.lsstcorp.org/browse/DM-8405.\\
-~\\
+https://jira.lsstcorp.org/browse/DM-8405.\\[2\baselineskip]
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -155,7 +151,7 @@ https://jira.lsstcorp.org/browse/DM-8405.\\
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Approved & Normal &
 Test & Fritz Mueller
 \\\bottomrule
 \end{longtable}
@@ -197,12 +193,9 @@ QSERV has been set-up following procedure at ~LVV-T1017.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute single object selection:\\
-~\\
-\textbf{SELECT} * \textbf{FROM} Object~\textbf{WHERE} deepSourceId =
-9292041530376264\\
-~\\
-and record execution time.
+            Execute single object selection:\\[2\baselineskip]\textbf{SELECT} *
+\textbf{FROM} Object~\textbf{WHERE} deepSourceId =
+9292041530376264\\[2\baselineskip]and record execution time.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -221,9 +214,9 @@ and record execution time.
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute spatial area selection from Object:\\
-~\\
-\textbf{SELECT COUNT(*)} \textbf{FROM} Object \textbf{WHERE}~\\
+            Execute spatial area selection from
+Object:\\[2\baselineskip]\textbf{SELECT COUNT(*)} \textbf{FROM} Object
+\textbf{WHERE}~\\
 
 ~qserv\_areaspec\_box(316.582327, −6.839078, 316.653938, −6.781822)
 
@@ -253,7 +246,7 @@ and record execution time.
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Approved & Normal &
 Test & Fritz Mueller
 \\\bottomrule
 \end{longtable}
@@ -298,14 +291,10 @@ QSERV has been set-up following procedure at ~LVV-T1017.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute query:\\
-~\\
-\textbf{SELECT} ra , decl , u\_psfFlux , g\_psfFlux , r\_psfFlux
-\textbf{FROM} Object\\
-\textbf{WHERE} y\_shapeIxx \textbf{BETWEEN} 20 \textbf{AND} 20.1\\
-~\\
-~\\
-and record execution time and output size.
+            Execute query:\\[2\baselineskip]\textbf{SELECT} ra , decl , u\_psfFlux ,
+g\_psfFlux , r\_psfFlux \textbf{FROM} Object\\
+\textbf{WHERE} y\_shapeIxx \textbf{BETWEEN} 20 \textbf{AND}
+20.1\\[3\baselineskip]and record execution time and output size.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -316,8 +305,7 @@ and record execution time and output size.
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                Query expected to run in less than 1 hour.\\
-~\\
+                Query expected to run in less than 1 hour.\\[2\baselineskip]
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -325,12 +313,9 @@ and record execution time and output size.
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute query:\\
-~\\
-\textbf{SELECT} COUNT(*) \textbf{FROM} Source \textbf{WHERE} flux\_sinc
-\textbf{BETWEEN} 1 \textbf{AND} 1.1\\
-~\\
-and record the execution time
+            Execute query:\\[2\baselineskip]\textbf{SELECT} COUNT(*) \textbf{FROM}
+Source \textbf{WHERE} flux\_sinc \textbf{BETWEEN} 1 \textbf{AND}
+1.1\\[2\baselineskip]and record the execution time
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -349,12 +334,9 @@ and record the execution time
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute query:\\
-~\\
-\textbf{SELECT} COUNT(*) \textbf{FROM} ForcedSource \textbf{WHERE}
-psfFlux \textbf{BETWEEN} 0.1 \textbf{AND} 0.2\\
-~\\
-and record the execution time
+            Execute query:\\[2\baselineskip]\textbf{SELECT} COUNT(*) \textbf{FROM}
+ForcedSource \textbf{WHERE} psfFlux \textbf{BETWEEN} 0.1 \textbf{AND}
+0.2\\[2\baselineskip]and record the execution time
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -380,7 +362,7 @@ and record the execution time
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Approved & Normal &
 Test & Fritz Mueller
 \\\bottomrule
 \end{longtable}
@@ -422,14 +404,11 @@ QSERV has been set-up following procedure at ~LVV-T1017.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute query:\\
-~\\
-\textbf{SELECT} o.deepSourceId, s.objectId, s.id, o.ra, o.decl\\
+            Execute query:\\[2\baselineskip]\textbf{SELECT} o.deepSourceId,
+s.objectId, s.id, o.ra, o.decl\\
 \textbf{~ ~ FROM} Object o, Source s WHERE o.deepSourceId=s.objectId\\
 \hspace*{0.333em} ~ \textbf{AND} s . flux\_sinc \textbf{BETWEEN} 0.3
-\textbf{AND} 0.31\\
-~\\
-and record execution time.
+\textbf{AND} 0.31\\[2\baselineskip]and record execution time.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -448,14 +427,11 @@ and record execution time.
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Execute query:\\
-~\\
-\textbf{SELECT} o.deepSourceId, f.psfFlux \textbf{FROM} Object o,
-ForcedSource f\\
+            Execute query:\\[2\baselineskip]\textbf{SELECT} o.deepSourceId,
+f.psfFlux \textbf{FROM} Object o, ForcedSource f\\
 \textbf{~ ~ WHERE} o.deepSourceId=f.deepSourceId\\
-\textbf{~ ~ AND} f . psfFlux \textbf{BETWEEN} 0.13 \textbf{AND} 0.14\\
-~\\
-and record execution time.
+\textbf{~ ~ AND} f . psfFlux \textbf{BETWEEN} 0.13 \textbf{AND}
+0.14\\[2\baselineskip]and record execution time.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -481,7 +457,7 @@ and record execution time.
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Approved & Normal &
 Test & Fritz Mueller
 \\\bottomrule
 \end{longtable}
@@ -537,8 +513,8 @@ resource exhaustion.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Repeat steps 2 through 5 below, where "pool of interest" is taken first
-to be "FTSObj" and subsequently "FTSSrc":
+            Repeat steps 2 through 5 below, where ``pool of interest'' is taken
+first to be ``FTSObj'' and subsequently ``FTSSrc'':
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -654,7 +630,7 @@ to the limits of machine resource exhaustion.
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Approved & Normal &
 Test & Fritz Mueller
 \\\bottomrule
 \end{longtable}
@@ -773,7 +749,7 @@ yearly target values in LDM-552, section 2.2.1.
 \toprule
 Version & Status & Priority & Verification Type & Owner
 \\\midrule
-1 & Draft & Normal &
+1 & Approved & Normal &
 Test & Fritz Mueller
 \\\bottomrule
 \end{longtable}
